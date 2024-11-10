@@ -2,6 +2,6 @@
 <configuration>
 	<connectionStrings>
 		<add name="BloggingDatabase"
-			 connectionString="Server=localhost;Database=VulHierJeDbIn;user=Root;password=;" />
+			 connectionString="Server=(localdb)\\mssqllocaldb;Database=EFGetStarted.ConsoleApp.NewDb;Trusted_Connection=True;" />
 	</connectionStrings>
 </configuration>
