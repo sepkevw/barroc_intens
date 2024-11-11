@@ -26,6 +26,8 @@ namespace Barroc_intens
         public MainWindow()
         {
             this.InitializeComponent();
+            using var connection = new AppDbContext();
+            connection.Database.EnsureCreated();
         }
 
         private void myButton_Click(object sender, RoutedEventArgs e)
