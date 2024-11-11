@@ -26,6 +26,16 @@ namespace Barroc_intens.Pages
         public DashboardPage()
         {
             this.InitializeComponent();
+
+
+        }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            using(var db = new AppDbContext())
+            {
+                dashboardListView.ItemsSource = db.Users;
+            }
         }
     }
 }

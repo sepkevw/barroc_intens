@@ -7,10 +7,33 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    xmlns:localdata="using:Barroc_intens.Models">
 
+    
     <Grid>
-        <TextBlock>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="2*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0">
+            <TextBlock>Titel</TextBlock>
+            <ListView x:Name="dashboardListView">
+                <ListView.ItemTemplate>
+                    <DataTemplate x:DataType="localdata:User">
+                        <StackPanel>
+                            <TextBlock Text="{x:Bind Username}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackPanel>
+        
+        <TextBlock Grid.Column="1">
             test
         </TextBlock>
     </Grid>
