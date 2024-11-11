@@ -25,7 +25,7 @@ namespace Barroc_intens
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
-                ConfigurationManager.ConnectionStrings["Database"].ConnectionString, ServerVersion.Parse("8.0.13"));
+                ConfigurationManager.ConnectionStrings["BarocIntensDatabase"].ConnectionString, ServerVersion.Parse("8.0.13"));
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
