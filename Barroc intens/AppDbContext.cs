@@ -22,6 +22,8 @@ namespace Barroc_intens
         public DbSet<Quote> Quotes { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<Appointment> Appointments { get; set; }
+        public DbSet<CustomerAppointment> CustomerAppointments { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
@@ -35,7 +37,29 @@ namespace Barroc_intens
                 .WithOne(cp => cp.Customer)
                 .HasForeignKey<CustomerContactPerson>(cp => cp.CustomerId); // Specify the foreign key here
 
-            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Role>().HasData(
+           new Role { Id = 1, RoleName = "Admin" },
+           new Role { Id = 2, RoleName= "User" },
+           new Role { Id = 3, RoleName = "Manager" }
+       );
+
+            // Seed data for users
+            var users = new List<User>();
+            var random = new Random();
+
+            for (int i = 1; i <= 30; i++)
+            {
+                users.Add(new User
+                {
+                    Id = i,
+                    Username = $"User{i}",
+                    RoleId = random.Next(1, 4), // Assuming there are 3 roles
+                    Created_at = DateTime.Now.AddDays(-random.Next(1, 1000)),
+                    Role = null // This will be set automatically by EF Core based on RoleId
+                });
+            }
+
+            modelBuilder.Entity<User>().HasData(users);
         }
     }
 }
