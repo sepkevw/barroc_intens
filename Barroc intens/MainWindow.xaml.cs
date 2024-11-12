@@ -1,4 +1,5 @@
 using Barroc_intens.Pages;
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -28,9 +29,15 @@ namespace Barroc_intens
         {
             this.InitializeComponent();
             using var connection = new AppDbContext();
+            connection.Database.EnsureDeleted();
             connection.Database.EnsureCreated();
 
-            this.contentFrame.Navigate(typeof(DashboardPage));
+            int RandomId = new Random().Next(1, 25);
+            using(var db = new AppDbContext())  
+            {
+                User LoggedInUser = db.Users.First(u => u.Id == RandomId);
+                this.contentFrame.Navigate(typeof(DashboardPage), LoggedInUser);
+            }
         }
     }
 }

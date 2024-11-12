@@ -1,3 +1,4 @@
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -32,9 +33,38 @@ namespace Barroc_intens.Pages
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            using(var db = new AppDbContext())
+            User currentUser = (User)e.Parameter;
+
+            switch (currentUser.RoleId)
             {
-                dashboardListView.ItemsSource = db.Users;
+                case 1: //inkoop / purchasing dept.
+                    using (var db = new AppDbContext())
+                    {
+                        dashboardListView.ItemsSource = db.Users.ToList();
+                        dashboardGridView.ItemsSource = db.Users.ToList();
+                    }
+                break;
+                case 2: //financien / finance 
+                    using (var db = new AppDbContext())
+                    {
+                        dashboardListView.ItemsSource = db.Users.ToList();
+                        dashboardGridView.ItemsSource = db.Users.ToList();
+                    }
+                break;
+                case 3: //onderhoud / maintenance
+                    using (var db = new AppDbContext())
+                    {
+                        dashboardListView.ItemsSource = db.Users.ToList();
+                        dashboardGridView.ItemsSource = db.Users.ToList();
+                    }
+                break;
+                case 4: //verkoop / sales
+                    using (var db = new AppDbContext())
+                    {
+                        dashboardListView.ItemsSource = db.Users.ToList();
+                        dashboardGridView.ItemsSource = db.Users.ToList();
+                    }
+                break;
             }
         }
     }
