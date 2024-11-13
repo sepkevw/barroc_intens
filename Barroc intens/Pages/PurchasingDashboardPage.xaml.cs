@@ -27,5 +27,10 @@ namespace Barroc_intens.Pages
         {
             this.InitializeComponent();
         }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
     }
 }

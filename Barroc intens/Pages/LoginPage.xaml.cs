@@ -26,6 +26,8 @@ namespace Barroc_intens.Pages
         public LoginPage()
         {
             this.InitializeComponent();
+
+            string Title = "test";
         }
 
         private void FinanceButton_Click(object sender, RoutedEventArgs e)

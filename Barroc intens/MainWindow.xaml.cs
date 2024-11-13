@@ -47,5 +47,10 @@ namespace Barroc_intens
                 this.contentFrame.Navigate(typeof(LoginPage));
             }
         }
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
