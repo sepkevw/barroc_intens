@@ -21,7 +21,7 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0">Binnekomende leveringen</TextBlock>
+        <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 10">Binnekomende leveringen</TextBlock>
         <ListView x:Name="dashboardListView" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="20, 10, 20, 20">
             <!--<ListView.ItemTemplate>
                 <DataTemplate x:DataType="localdata:User">
@@ -120,7 +120,7 @@
             </ListViewItem>
         </ListView>
 
-        <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0">Lage voorraad</TextBlock>
+        <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 10">Lage voorraad</TextBlock>
         <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20" HorizontalAlignment="Center">
             <!--<GridView.ItemTemplate>
                 <DataTemplate x:DataType="localdata:User">
@@ -212,8 +212,8 @@
             </GridView.ItemsPanel>
         </GridView>
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20" Orientation="Horizontal">
-            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
-            <!--<Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Margin="20, 0, 0, 0" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>-->
+            <!--<Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>-->
+            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
         </StackPanel>
     </Grid>
 </Page>

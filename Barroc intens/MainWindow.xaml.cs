@@ -44,7 +44,7 @@ namespace Barroc_intens
                 //    Created_at = DateTime.Now,
                 //    Role = null
                 //}; Test User
-                this.contentFrame.Navigate(typeof(PurchasingDashboardPage));
+                this.contentFrame.Navigate(typeof(SalesDashboardPage));
             }
         }
     }

@@ -50,8 +50,8 @@
                 </GridView.ItemsPanel>
             </GridView>
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20" Orientation="Horizontal">
-            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
-            <Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Margin="20, 0, 0, 0" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
+            <Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
+            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
         </StackPanel>
     </Grid>
 </Page>
