@@ -1,3 +1,5 @@
+using Barroc_intens.Pages;
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -26,11 +28,29 @@ namespace Barroc_intens
         public MainWindow()
         {
             this.InitializeComponent();
+            using var connection = new AppDbContext();
+            connection.Database.EnsureDeleted();
+            connection.Database.EnsureCreated();
+
+            int RandomId = new Random().Next(1, 25);
+            using(var db = new AppDbContext())  
+            {
+                User LoggedInUser = db.Users.First(u => u.Id == RandomId);
+                //User LoggedInUser = new User
+                //{
+                //    Id = 1,
+                //    Username = "Collin",
+                //    RoleId = 1, // Assuming there are 3 roles
+                //    Created_at = DateTime.Now,
+                //    Role = null
+                //}; Test User
+                this.contentFrame.Navigate(typeof(LoginPage));
+            }
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            myButton.Content = "Clicked";
+
         }
     }
 }
