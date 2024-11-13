@@ -7,7 +7,8 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
+    >
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -21,26 +22,196 @@
             <RowDefinition Height="80"/>
         </Grid.RowDefinitions>
 
-        <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0"> ListView Title</TextBlock>
+        <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0">Betalings achterstanden</TextBlock>
         <ListView x:Name="dashboardListView" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="20, 10, 20, 20">
-            <ListView.ItemTemplate>
+            <!--<ListView.ItemTemplate>
                 <DataTemplate x:DataType="localdata:User">
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
                         <TextBlock Text="{x:Bind Username}"/>
                     </StackPanel>
                 </DataTemplate>
-            </ListView.ItemTemplate>
+            </ListView.ItemTemplate>-->
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Curio"/> <!--Bedrijf naam-->
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/> <!--per jaar of per 3 maanden-->
+                    <TextBlock Padding="5" Text="Oktober - December 2024"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 19"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Tech Solutions"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Januari - Maart 2024"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 101"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Global Corp"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="April - Juni 2024"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 202"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="FinTech Solutions"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Juli - September 2024"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 303"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Innovatech"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Oktober - December 2024"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 404"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="NextGen Services"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Januari - Maart 2025"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 505"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="DataStream Inc."/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="April - Juni 2025"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 606"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Skyline Ventures"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Juli - September 2025"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 707"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Bright Future"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Oktober - December 2025"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 808"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Optima Solutions"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="Januari - Maart 2026"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 909"/>
+                </StackPanel>
+            </ListViewItem>
+            <ListViewItem>
+                <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                    <TextBlock Padding="5" FontWeight="Bold" Text="Green Energy"/>
+                    <TextBlock Padding="5" Text="Periode gemiste betaling:"/>
+                    <TextBlock Padding="5" Text="April - Juni 2026"/>
+                    <TextBlock Padding="5" Text="Factuur nummer: 1001"/>
+                </StackPanel>
+            </ListViewItem>
+
         </ListView>
 
-        <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0">GridView Title</TextBlock>
+        <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 0">Begrotingen</TextBlock>
         <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20" HorizontalAlignment="Center">
-            <GridView.ItemTemplate>
+            <!--<GridView.ItemTemplate>
                 <DataTemplate x:DataType="localdata:User">
                     <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
                         <TextBlock Text="{x:Bind Username}"/>
                     </StackPanel>
                 </DataTemplate>
-            </GridView.ItemTemplate>
+            </GridView.ItemTemplate>-->
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Oktober" Padding="5"/>
+                    <TextBlock Text="-247,73" Padding="5" FontWeight="SemiBold" Foreground="red"/> <!--red voor - , groen voor +-->
+                    
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="September" Padding="5"/>
+                    <TextBlock Text="150,00" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Augustus" Padding="5"/>
+                    <TextBlock Text="-500,25" Padding="5" FontWeight="SemiBold" Foreground="red"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Juli" Padding="5"/>
+                    <TextBlock Text="75,89" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Juni" Padding="5"/>
+                    <TextBlock Text="-120,47" Padding="5" FontWeight="SemiBold" Foreground="red"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Mei" Padding="5"/>
+                    <TextBlock Text="230,10" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="April" Padding="5"/>
+                    <TextBlock Text="-330,95" Padding="5" FontWeight="SemiBold" Foreground="red"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Maart" Padding="5"/>
+                    <TextBlock Text="480,30" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Februari" Padding="5"/>
+                    <TextBlock Text="-75,00" Padding="5" FontWeight="SemiBold" Foreground="red"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="Januari" Padding="5"/>
+                    <TextBlock Text="300,00" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="2023" Padding="5"/>
+                    <TextBlock Text="17.638,13" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="December" Padding="5"/>
+                    <TextBlock Text="-150,20" Padding="5" FontWeight="SemiBold" Foreground="red"/>
+                </StackPanel>
+            </GridViewItem>
+            <GridViewItem>
+                <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                    <TextBlock Text="November" Padding="5"/>
+                    <TextBlock Text="200,50" Padding="5" FontWeight="SemiBold" Foreground="#32CD32"/>
+                </StackPanel>
+            </GridViewItem>
+
+
             <GridView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
@@ -48,8 +219,8 @@
             </GridView.ItemsPanel>
         </GridView>
         <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20" Orientation="Horizontal">
-            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
-            <Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Margin="20, 0, 0, 0" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
+            <Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
+            <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0" Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
         </StackPanel>
     </Grid>
 </Page>

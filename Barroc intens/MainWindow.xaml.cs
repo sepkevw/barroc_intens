@@ -36,7 +36,15 @@ namespace Barroc_intens
             using(var db = new AppDbContext())  
             {
                 User LoggedInUser = db.Users.First(u => u.Id == RandomId);
-                this.contentFrame.Navigate(typeof(DashboardPage), LoggedInUser);
+                //User LoggedInUser = new User
+                //{
+                //    Id = 1,
+                //    Username = "Collin",
+                //    RoleId = 1, // Assuming there are 3 roles
+                //    Created_at = DateTime.Now,
+                //    Role = null
+                //}; Test User
+                this.contentFrame.Navigate(typeof(FinanceDashboardPage));
             }
         }
     }
