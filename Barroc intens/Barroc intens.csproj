@@ -14,6 +14,8 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="MaintenanceOverview.xaml" />
+    <None Remove="Pages\DashboardPage.xaml" />
+    <None Remove="Pages\LoginPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -44,7 +46,16 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Page Update="MaintenanceOverview.xaml">
+=======
+    <Page Update="Pages\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Pages\DashboardPage.xaml">
+>>>>>>> 107ca1cb26402c52c6e5307b1a7fb0035c5c6cef
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

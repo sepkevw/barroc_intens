@@ -1,3 +1,5 @@
+using Barroc_intens.Pages;
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -31,33 +33,25 @@ namespace Barroc_intens
             using var connection = new AppDbContext();
             connection.Database.EnsureDeleted();
             connection.Database.EnsureCreated();
+
+            int RandomId = new Random().Next(1, 25);
+            using(var db = new AppDbContext())  
+            {
+                User LoggedInUser = db.Users.First(u => u.Id == RandomId);
+                //User LoggedInUser = new User
+                //{
+                //    Id = 1,
+                //    Username = "Collin",
+                //    RoleId = 1, // Assuming there are 3 roles
+                //    Created_at = DateTime.Now,
+                //    Role = null
+                //}; Test User
+                this.contentFrame.Navigate(typeof(LoginPage));
+            }
         }
 
-        private void SelectorBar_SelectionChanged(SelectorBar sender, SelectorBarSelectionChangedEventArgs args)
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            SelectorBarItem selectedItem = sender.SelectedItem;
-            int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
-            System.Type pageType;
-
-            switch (currentSelectedIndex)
-            {
-                case 0:
-                    pageType = typeof(MaintenanceOverview);
-                    break;
-                default:
-                    pageType = typeof(MainWindow);
-                    break;
-            }
-
-            var slideNavigationTransitionEffect =
-                currentSelectedIndex - _previousSelectedIndex > 0 ?
-                    SlideNavigationTransitionEffect.FromRight :
-                    SlideNavigationTransitionEffect.FromLeft;
-
-            ContentFrame.Navigate(pageType, null, new SlideNavigationTransitionInfo()
-            { Effect = slideNavigationTransitionEffect });
-
-            _previousSelectedIndex = currentSelectedIndex;
 
         }
     }

@@ -6,28 +6,23 @@
     xmlns:local="using:Barroc_intens"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    xmlns:localdata="using:Barroc_intens.Pages">
 
-    <Grid>
+    <!--<Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="1*" />
-            <RowDefinition Height="9*" />
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <SelectorBar x:Name="SelectorBar"
-                     SelectionChanged="SelectorBar_SelectionChanged"
-                     Background="#3B3F44"
-                     Grid.Row="0"
-                     Width="Auto"
-                     HorizontalAlignment="Stretch"
-                     VerticalAlignment="Stretch">
-            <SelectorBarItem x:Name="MaintenanceOverview"
-                             Text="Appointments" />
-        </SelectorBar>
+        <StackPanel Grid.Row="0" VerticalAlignment="Center" Padding="5" Orientation="Horizontal">
+            <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
+        </StackPanel>
+        <Frame x:Name="contentFrame" Grid.Row="1">
+        
+        </Frame>
+    </Grid>-->
+    <Frame x:Name="contentFrame">
 
-        <Frame x:Name="ContentFrame"
-               IsNavigationStackEnabled="False"
-               Grid.Row="1" />
-
-    </Grid>
+    </Frame>
 </Window>
