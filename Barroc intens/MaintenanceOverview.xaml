@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Barroc_intens.MaintenanceOverview"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Barroc_intens"
+    xmlns:localData="using:Barroc_intens.Models"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        
+        <ListView x:Name="AppointmentsListView"
+                  Grid.Row="2"
+                  IsItemClickEnabled="True"
+                  ItemClick="AppointmentsListView_ItemClick">
+            <ListView.ItemTemplate>
+                <DataTemplate x:DataType="localData:Appointment">
+                    <StackPanel Orientation="Vertical"
+                                Padding="10">
+                        <TextBlock Text="{Binding Customer.CompanyName}" />
+                        <TextBlock Text="{Binding  Location}" />
+                        <TextBlock Text="{Binding Date}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <StackPanel Orientation="Vertical"
+                    Grid.Column="1"
+                    Spacing="15"
+                    Padding="15">
+            <TextBlock FontSize="25">appointment Details</TextBlock>
+
+            <TextBlock Text=""
+                       x:Name="appNameTextBlock"
+                       FontWeight="Bold" />
+            <TextBlock Text=""
+                       x:Name="appDescriptionTextBlock" />
+            <TextBlock Text=""
+                x:Name="appLocationTextBlock" />
+            <TextBlock Text=""
+                       x:Name="appDateTextBlock"/>
+
+            <TextBlock x:Name="ExtraInfoTxt" Text="Extra Info" FontWeight="Bold" FontSize="20" Margin="0,20,0,0" Visibility="Collapsed"/>
+        </StackPanel>
+    </Grid>
+</Page>

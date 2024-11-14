@@ -20,6 +20,6 @@ namespace Barroc_intens.Models
         public User User { get; set; }
         
         public Customer Customer { get; set; }
-        public List<CustomerAppointment> CustomerAppointments { get; set; }
+        //public List<CustomerAppointment> CustomerAppointments { get; set; }
     }
 }

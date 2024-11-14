@@ -8,7 +8,26 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
 
-    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-        <Button x:Name="myButton" Click="myButton_Click">Click Me</Button>
-    </StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="9*" />
+        </Grid.RowDefinitions>
+
+        <SelectorBar x:Name="SelectorBar"
+                     SelectionChanged="SelectorBar_SelectionChanged"
+                     Background="#3B3F44"
+                     Grid.Row="0"
+                     Width="Auto"
+                     HorizontalAlignment="Stretch"
+                     VerticalAlignment="Stretch">
+            <SelectorBarItem x:Name="MaintenanceOverview"
+                             Text="Appointments" />
+        </SelectorBar>
+
+        <Frame x:Name="ContentFrame"
+               IsNavigationStackEnabled="False"
+               Grid.Row="1" />
+
+    </Grid>
 </Window>

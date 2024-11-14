@@ -4,6 +4,7 @@ using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
+using Microsoft.UI.Xaml.Media.Animation;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -23,16 +24,41 @@ namespace Barroc_intens
     /// </summary>
     public sealed partial class MainWindow : Window
     {
+        private int _previousSelectedIndex = 0;
         public MainWindow()
         {
             this.InitializeComponent();
             using var connection = new AppDbContext();
+            connection.Database.EnsureDeleted();
             connection.Database.EnsureCreated();
         }
 
-        private void myButton_Click(object sender, RoutedEventArgs e)
+        private void SelectorBar_SelectionChanged(SelectorBar sender, SelectorBarSelectionChangedEventArgs args)
         {
-            myButton.Content = "Clicked";
+            SelectorBarItem selectedItem = sender.SelectedItem;
+            int currentSelectedIndex = sender.Items.IndexOf(selectedItem);
+            System.Type pageType;
+
+            switch (currentSelectedIndex)
+            {
+                case 0:
+                    pageType = typeof(MaintenanceOverview);
+                    break;
+                default:
+                    pageType = typeof(MainWindow);
+                    break;
+            }
+
+            var slideNavigationTransitionEffect =
+                currentSelectedIndex - _previousSelectedIndex > 0 ?
+                    SlideNavigationTransitionEffect.FromRight :
+                    SlideNavigationTransitionEffect.FromLeft;
+
+            ContentFrame.Navigate(pageType, null, new SlideNavigationTransitionInfo()
+            { Effect = slideNavigationTransitionEffect });
+
+            _previousSelectedIndex = currentSelectedIndex;
+
         }
     }
 }
