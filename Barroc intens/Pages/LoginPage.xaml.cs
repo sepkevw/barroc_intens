@@ -26,8 +26,6 @@ namespace Barroc_intens.Pages
         public LoginPage()
         {
             this.InitializeComponent();
-
-            string Title = "test";
         }
 
         private void FinanceButton_Click(object sender, RoutedEventArgs e)
@@ -48,6 +46,24 @@ namespace Barroc_intens.Pages
         private void SalesButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(SalesDashboardPage));
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            using var conn = new AppDbContext();
+            var dbUser = conn.Users.FirstOrDefault(u => u.Username == UsernameInput.Text);
+            
+            if(dbUser == null)
+            {
+                ErrorMessage.Text = "User not found.";
+            } else
+            {
+                var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
+                if(verifyLogin)
+                {
+                    Frame.Navigate(typeof(DashboardPage),dbUser);
+                }
+            }
         }
     }
 }

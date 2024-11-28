@@ -38,33 +38,20 @@ namespace Barroc_intens.Pages
             switch (currentUser.RoleId)
             {
                 case 1: //inkoop / purchasing dept.
-                    using (var db = new AppDbContext())
-                    {
-                        dashboardListView.ItemsSource = db.Users.ToList();
-                        dashboardGridView.ItemsSource = db.Users.ToList();
-                    }
+                    Frame.Navigate(typeof(PurchasingDashboardPage));
                 break;
                 case 2: //financien / finance 
-                    using (var db = new AppDbContext())
-                    {
-                        dashboardListView.ItemsSource = db.Users.ToList();
-                        dashboardGridView.ItemsSource = db.Users.ToList();
-                    }
-                break;
+                    Frame.Navigate(typeof(FinanceDashboardPage));
+                    break;
                 case 3: //onderhoud / maintenance
-                    using (var db = new AppDbContext())
-                    {
-                        dashboardListView.ItemsSource = db.Users.ToList();
-                        dashboardGridView.ItemsSource = db.Users.ToList();
-                    }
-                break;
+                    Frame.Navigate(typeof(MaintenanceDashboardPage));
+                    break;
                 case 4: //verkoop / sales
-                    using (var db = new AppDbContext())
-                    {
-                        dashboardListView.ItemsSource = db.Users.ToList();
-                        dashboardGridView.ItemsSource = db.Users.ToList();
-                    }
-                break;
+                    Frame.Navigate(typeof(SalesDashboardPage));
+                    break;
+                default:
+                    Frame.Navigate(typeof(LoginPage));
+                    break;
             }
         }
     }
