@@ -60,6 +60,108 @@ namespace Barroc_intens
            new Role { Id = 11, RoleName = "TechnicalService"},
            new Role { Id = 12, RoleName = "Planner"}
        );
+               new Role { Id = 1, RoleName = "Admin" },
+               new Role { Id = 2, RoleName= "User" },
+               new Role { Id = 3, RoleName = "Manager" }
+            );
+
+            //products en category seeder
+            var products = new List<Product>();
+            var categories = new List<Category>();
+
+            categories.AddRange([
+            new Category { Id = 1, Name = "Automaten" },
+            new Category { Id = 2, Name = "Koffiebonen" }
+            ]);
+
+            products.AddRange([
+                // Automaten
+                new Product
+                {
+                    Id = 1,
+                    name = "Barroc Intens Italian Light",
+                    ProductNumber = 23456701,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 2,
+                    name = "Barroc Intens Italian",
+                    ProductNumber = 23456702,
+                    LeaseCost = 599,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 3,
+                    name = "Barroc Intens Italian Deluxe",
+                    ProductNumber = 23456703,
+                    LeaseCost = 799,
+                    InstallCost = 375,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 4,
+                    name = "Barroc Intens Italian Deluxe Special",
+                    ProductNumber = 23456704,
+                    LeaseCost = 999,
+                    InstallCost = 375,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+
+                // Koffiebonen
+                new Product
+                {
+                    Id = 5,
+                    name = "Espresso Beneficio",
+                    ProductNumber = 23912345,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 21.60,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 6,
+                    name = "Yellow Bourbon Brasil",
+                    ProductNumber = 23912346,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 23.20,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 7,
+                    name = "Espresso Roma",
+                    ProductNumber = 23912347,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 20.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 8,
+                    name = "Red Honey Honduras",
+                    ProductNumber = 23912348,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                }
+            ]);
+
+            modelBuilder.Entity<Category>().HasData(categories);
+            modelBuilder.Entity<Product>().HasData(products);
 
             // Seed data for users
             var users = new List<User>();
