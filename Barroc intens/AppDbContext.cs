@@ -48,6 +48,7 @@ namespace Barroc_intens
 
             modelBuilder.Entity<Role>().HasData(
            new Role { Id = 1, RoleName = "Admin" },
+           new Role { Id = 2, RoleName = "CEO"},
            new Role { Id = 2, RoleName= "HeadFinance" },
            new Role { Id = 3, RoleName = "AdminFinance" },
            new Role { Id = 4, RoleName = "HeadSales"},
