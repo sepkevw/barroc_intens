@@ -24,10 +24,19 @@ namespace Barroc_intens
         public DbSet<User> Users { get; set; }
         public DbSet<Appointment> Appointments { get; set; }
         public DbSet<CustomerAppointment> CustomerAppointments { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseMySql(
                 ConfigurationManager.ConnectionStrings["Database"].ConnectionString, ServerVersion.Parse("8.0.13"));
+        }
+
+        private static Random random = new Random();
+        public static string RandomString(int length)
+        {
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, length)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -53,9 +62,10 @@ namespace Barroc_intens
                 {
                     Id = i,
                     Username = $"User{i}",
+                    Password = SecureHasher.Hash("test"),
                     RoleId = random.Next(1, 4), // Assuming there are 3 roles
                     Created_at = DateTime.Now.AddDays(-random.Next(1, 1000)),
-                    Role = null // This will be set automatically by EF Core based on RoleId
+                    Role = null
                 });
             }
 
