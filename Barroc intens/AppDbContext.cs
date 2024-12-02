@@ -60,10 +60,6 @@ namespace Barroc_intens
            new Role { Id = 11, RoleName = "TechnicalService"},
            new Role { Id = 12, RoleName = "Planner"}
        );
-               new Role { Id = 1, RoleName = "Admin" },
-               new Role { Id = 2, RoleName= "User" },
-               new Role { Id = 3, RoleName = "Manager" }
-            );
 
             //products en category seeder
             var products = new List<Product>();
