@@ -61,7 +61,33 @@ namespace Barroc_intens.Pages
                 var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
                 if(verifyLogin)
                 {
-                    Frame.Navigate(typeof(DashboardPage),dbUser);
+                    switch (dbUser.RoleId)
+                    {
+                        case 7:
+                        case 8:
+                            //inkoop / purchasing dept.
+                            Frame.Navigate(typeof(PurchasingDashboardPage));
+                            break;
+                        case 3:
+                        case 4:
+                            //financien / finance 
+                            Frame.Navigate(typeof(FinanceDashboardPage));
+                            break;
+                        case 10:
+                        case 11:
+                        case 12:
+                            //onderhoud / maintenance
+                            Frame.Navigate(typeof(MaintenanceDashboardPage));
+                            break;
+                        case 5:
+                        case 6:
+                            //verkoop / sales
+                            Frame.Navigate(typeof(SalesDashboardPage));
+                            break;
+                        default:
+                            Frame.Navigate(typeof(LoginPage));
+                            break;
+                    }
                 }
             }
         }
