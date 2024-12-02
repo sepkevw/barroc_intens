@@ -13,7 +13,6 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Pages\DashboardPage.xaml" />
     <None Remove="Pages\LoginPage.xaml" />
   </ItemGroup>
 
@@ -46,11 +45,6 @@
   </ItemGroup>
   <ItemGroup>
     <Page Update="Pages\LoginPage.xaml">
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Update="Pages\DashboardPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -31,35 +31,27 @@ namespace Barroc_intens
                 ConfigurationManager.ConnectionStrings["Database"].ConnectionString, ServerVersion.Parse("8.0.13"));
         }
 
-        private static Random random = new Random();
-        public static string RandomString(int length)
-        {
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, length)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
-
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Customer>()
                 .HasOne(c => c.ContactPerson)
                 .WithOne(cp => cp.Customer)
                 .HasForeignKey<CustomerContactPerson>(cp => cp.CustomerId); // Specify the foreign key here
-
             modelBuilder.Entity<Role>().HasData(
-           new Role { Id = 1, RoleName = "Admin" },
-           new Role { Id = 2, RoleName = "CEO"},
-           new Role { Id = 2, RoleName= "HeadFinance" },
-           new Role { Id = 3, RoleName = "AdminFinance" },
-           new Role { Id = 4, RoleName = "HeadSales"},
-           new Role { Id = 5, RoleName = "Consultant"},
-           new Role { Id = 6, RoleName = "headInkoop"},
-           new Role { Id = 7, RoleName = "Inkoper"},
-           new Role { Id = 8, RoleName = "MedewerkerMagazijn"},
-           new Role { Id = 9, RoleName = "HeadMaintenance"},
-           new Role { Id = 11, RoleName = "TechnicalService"},
-           new Role { Id = 12, RoleName = "Planner"}
-       );
+                new Role { Id = 1, RoleName = "Admin" },
+                new Role { Id = 2, RoleName = "CEO" },
+                new Role { Id = 3, RoleName = "HeadFinance" },
+                new Role { Id = 4, RoleName = "AdminFinance" },
+                new Role { Id = 5, RoleName = "HeadSales" },
+                new Role { Id = 6, RoleName = "Consultant" },
+                new Role { Id = 7, RoleName = "headInkoop" },
+                new Role { Id = 8, RoleName = "Inkoper" },
+                new Role { Id = 9, RoleName = "MedewerkerMagazijn" },
+                new Role { Id = 10, RoleName = "HeadMaintenance" },
+                new Role { Id = 11, RoleName = "TechnicalService" },
+                new Role { Id = 12, RoleName = "Planner" }
+                );
+
 
             //products en category seeder
             var products = new List<Product>();
@@ -156,9 +148,6 @@ namespace Barroc_intens
                 }
             ]);
 
-            modelBuilder.Entity<Category>().HasData(categories);
-            modelBuilder.Entity<Product>().HasData(products);
-
             // Seed data for users
             var users = new List<User>();
             var random = new Random();
@@ -170,13 +159,16 @@ namespace Barroc_intens
                     Id = i,
                     Username = $"User{i}",
                     Password = SecureHasher.Hash("test"),
-                    RoleId = random.Next(1, 4), // Assuming there are 3 roles
+                    RoleId = random.Next(3, 13),
                     Created_at = DateTime.Now.AddDays(-random.Next(1, 1000)),
                     Role = null
                 });
             }
 
             modelBuilder.Entity<User>().HasData(users);
+            modelBuilder.Entity<Category>().HasData(categories);
+            modelBuilder.Entity<Product>().HasData(products);
+
         }
     }
 }
