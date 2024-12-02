@@ -48,8 +48,16 @@ namespace Barroc_intens
 
             modelBuilder.Entity<Role>().HasData(
            new Role { Id = 1, RoleName = "Admin" },
-           new Role { Id = 2, RoleName= "User" },
-           new Role { Id = 3, RoleName = "Manager" }
+           new Role { Id = 2, RoleName= "HeadFinance" },
+           new Role { Id = 3, RoleName = "AdminFinance" },
+           new Role { Id = 4, RoleName = "HeadSales"},
+           new Role { Id = 5, RoleName = "Consultant"},
+           new Role { Id = 6, RoleName = "headInkoop"},
+           new Role { Id = 7, RoleName = "Inkoper"},
+           new Role { Id = 8, RoleName = "MedewerkerMagazijn"},
+           new Role { Id = 9, RoleName = "HeadMaintenance"},
+           new Role { Id = 11, RoleName = "TechnicalService"},
+           new Role { Id = 12, RoleName = "Planner"}
        );
 
             // Seed data for users
