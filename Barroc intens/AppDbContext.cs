@@ -32,11 +32,6 @@ namespace Barroc_intens
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customer>()
-                .HasOne(c => c.ContactPerson)
-                .WithOne(cp => cp.Customer)
-                .HasForeignKey<CustomerContactPerson>(cp => cp.CustomerId); // Specify the foreign key here
-
             modelBuilder.Entity<Role>().HasData(
                new Role { Id = 1, RoleName = "Admin" },
                new Role { Id = 2, RoleName= "User" },
@@ -177,37 +172,35 @@ namespace Barroc_intens
                     }
                 ]);
 
-            //customers.AddRange([
-            //    new Customer
-            //    {
-            //        Id = 1, // Seed data with negative ID
-            //        CompanyName = "Tech Solutions Inc.",
-            //        Address = "123 Tech Street, Innovation City",
-            //        ContactPersonId = 1,
-            //        Description = "Leading provider of tech solutions."
-            //    },
-            //    new Customer
-            //    {
-            //        Id = 2,
-            //        CompanyName = "Green Energy Co.",
-            //        Address = "456 Renewable Lane, EcoTown",
-            //        ContactPersonId = 2,
-            //        Description = "Specializes in renewable energy projects."
-            //    }
-            //]);
+            customers.AddRange([
+                new Customer
+                {
+                    Id = 1,
+                    CompanyName = "Tech Solutions Inc.",
+                    Address = "123 Tech Street, Innovation City",
+                    Description = "Leading provider of tech solutions."
+                },
+                new Customer
+                {
+                    Id = 2,
+                    CompanyName = "Green Energy Co.",
+                    Address = "456 Renewable Lane, EcoTown",
+                    Description = "Specializes in renewable energy projects."
+                }
+            ]);
 
-            //contactPerson.AddRange([
-            //    new CustomerContactPerson
-            //    {
-            //        Id = 1,
-            //        CustomerId = 1
-            //    },
-            //    new CustomerContactPerson
-            //    {
-            //        Id = 2,
-            //        CustomerId = 1
-            //    }
-            //    ]);
+            contactPerson.AddRange([
+                new CustomerContactPerson
+                {
+                    Id = 1,
+                    CustomerId = 1
+                },
+                new CustomerContactPerson
+                {
+                    Id = 2,
+                    CustomerId = 1
+                }
+                ]);
 
             // Seed data for users
             var users = new List<User>();
@@ -229,8 +222,9 @@ namespace Barroc_intens
             modelBuilder.Entity<Category>().HasData(categories);
             modelBuilder.Entity<Product>().HasData(products);
             modelBuilder.Entity<Appointment>().HasData(appointments);
-            //modelBuilder.Entity<CustomerContactPerson>().HasData(contactPerson);
-            //modelBuilder.Entity<Customer>().HasData(appointments);
+
+            modelBuilder.Entity<Customer>().HasData(appointments);
+            modelBuilder.Entity<CustomerContactPerson>().HasData(contactPerson);
         }
     }
 }
