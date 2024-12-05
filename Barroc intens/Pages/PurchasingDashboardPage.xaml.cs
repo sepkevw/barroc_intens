@@ -27,10 +27,9 @@ namespace Barroc_intens.Pages
         {
             this.InitializeComponent();
         }
-
-        private void BackButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            App.TryGoBack();
+            navigationHeader.ParentFrame = Frame;
         }
     }
 }
