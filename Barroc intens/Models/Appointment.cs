@@ -9,7 +9,7 @@ namespace Barroc_intens.Models
     internal class Appointment
     {
         public int Id { get; set; }
-        public int CustomerId { get; set; }
+        //public int CustomerId { get; set; }
         public DateTime Date { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
@@ -19,7 +19,7 @@ namespace Barroc_intens.Models
         public string Location { get; set; } = string.Empty;
         public User User { get; set; }
         
-        public Customer Customer { get; set; }
-        public List<CustomerAppointment> CustomerAppointments { get; set; }
+        //public Customer Customer { get; set; }
+        //public List<CustomerAppointment> CustomerAppointments { get; set; }
     }
 }
