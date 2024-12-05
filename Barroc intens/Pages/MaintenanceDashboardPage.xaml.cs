@@ -42,11 +42,6 @@ namespace Barroc_intens.Pages
             Frame.Navigate(typeof(LoginPage));
         }
 
-        protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
-            base.OnNavigatedTo(e);
-        }
-
         private async Task LoadAppointments()
         {
             try
@@ -54,10 +49,7 @@ namespace Barroc_intens.Pages
                 using var conn = new AppDbContext();
                 var appointments = await conn.Appointments.ToListAsync();
 
-                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
-                {
-                    dashboardListView.ItemsSource = appointments;
-                });
+                dashboardListView.ItemsSource = appointments;
             }
             catch (Exception ex)
             {

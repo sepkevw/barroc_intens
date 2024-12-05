@@ -62,6 +62,10 @@
                             </Grid.RowDefinitions>
 
                             <!-- Header Row -->
+                            <TextBlock Text="Priority"
+                                       FontWeight="Bold"
+                                       Grid.Row="0"
+                                       Grid.Column="0"/>
                             <TextBlock Text="Location"
                                        FontWeight="Bold"
                                        Grid.Row="0"
@@ -80,10 +84,11 @@
                                        Grid.Column="3" />
 
                             <!-- Data Row -->
+                            <TextBlock Text="{x:Bind }"
                             <TextBlock Text="{x:Bind Location}"
                                        Grid.Row="1"
                                        Grid.Column="0" />
-                            <TextBlock Text="{x:Bind Date, Converter={StaticResource DateTimeConverter}}"
+                            <TextBlock Text="{x:Bind Date}"
                                        Grid.Row="1"
                                        Grid.Column="1" />
                             <TextBlock Text="{x:Bind Description}"
