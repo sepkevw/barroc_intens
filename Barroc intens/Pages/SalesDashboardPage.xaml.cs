@@ -32,5 +32,10 @@ namespace Barroc_intens.Pages
         {
             App.TryGoBack();
         }
+
+        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(LoginPage));
+        }
     }
 }
