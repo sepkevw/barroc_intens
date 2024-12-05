@@ -12,6 +12,9 @@ using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
+using System.Threading.Tasks;
+using System.Diagnostics;
+using Microsoft.EntityFrameworkCore;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -26,11 +29,42 @@ namespace Barroc_intens.Pages
         public MaintenanceDashboardPage()
         {
             this.InitializeComponent();
+            Loaded += MaintenanceDashboardPage_Loaded;
+        }
+
+        private async void MaintenanceDashboardPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            await LoadAppointments();
         }
 
         private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(LoginPage));
         }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+        }
+
+        private async Task LoadAppointments()
+        {
+            try
+            {
+                using var conn = new AppDbContext();
+                var appointments = await conn.Appointments.ToListAsync();
+
+                await Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, () =>
+                {
+                    dashboardListView.ItemsSource = appointments;
+                });
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"Error loading appointments: {ex.Message}");
+            }
+        }
+
+
     }
 }
