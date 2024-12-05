@@ -84,7 +84,7 @@
                                        Grid.Column="3" />
 
                             <!-- Data Row -->
-                            <TextBlock Text="{x:Bind }"
+                            <TextBlock Text="{x:Bind Id}" />
                             <TextBlock Text="{x:Bind Location}"
                                        Grid.Row="1"
                                        Grid.Column="0" />
