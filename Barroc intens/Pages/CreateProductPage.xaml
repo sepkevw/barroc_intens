@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Page
+    x:Class="Barroc_intens.Pages.CreateProductPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Barroc_intens.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel x:Name="buttonStackPanel" 
+                Orientation="Vertical"
+                VerticalAlignment="Bottom"
+                Grid.Column="1">
+            <Button x:Name="SaveButton" 
+                    Click="SaveButton_Click"
+                    Background="#FACA16"
+                    Foreground="Black"
+                    FontSize="18"
+                    Height="45"
+                    Width="45"    
+                    Margin="5,5,10,5"
+                    Content="O"/>
+            <Button x:Name="cancelButton" 
+                    Click="cancelButton_Click"
+                    Background="#FE6F5E"
+                    Foreground="Black"
+                    FontSize="18"
+                    Height="45"
+                    Width="45"    
+                    Margin="5,5,10,10"
+                    Content="A"/>
+        </StackPanel>
+
+    </Grid>
+</Page>

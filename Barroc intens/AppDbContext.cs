@@ -57,7 +57,7 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 1,
-                    name = "Barroc Intens Italian Light",
+                    Name = "Barroc Intens Italian Light",
                     ProductNumber = 23456701,
                     LeaseCost = 499,
                     InstallCost = 289,
@@ -67,8 +67,9 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 2,
-                    name = "Barroc Intens Italian",
+                    Name = "Barroc Intens Italian",
                     ProductNumber = 23456702,
+                    UnitsInStock = 0,
                     LeaseCost = 599,
                     InstallCost = 289,
                     PricePerKilo = 0, // Niet van toepassing
@@ -77,8 +78,9 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 3,
-                    name = "Barroc Intens Italian Deluxe",
+                    Name = "Barroc Intens Italian Deluxe",
                     ProductNumber = 23456703,
+                    UnitsInStock = 2,
                     LeaseCost = 799,
                     InstallCost = 375,
                     PricePerKilo = 0, // Niet van toepassing
@@ -87,20 +89,97 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 4,
-                    name = "Barroc Intens Italian Deluxe Special",
+                    Name = "Barroc Intens Italian Deluxe Special",
                     ProductNumber = 23456704,
+                    UnitsInStock = 7,
                     LeaseCost = 999,
                     InstallCost = 375,
                     PricePerKilo = 0, // Niet van toepassing
                     CategoryId = 1
                 },
-
+                new Product
+                {
+                    Id = 13,
+                    Name = "Barroc Intens Brew Pro",
+                    ProductNumber = 23456701,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 14,
+                    Name = "Barroc Intens Brew Pro max plus",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 1,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 15,
+                    Name = "Barroc Intens Brew Pro max plus ultra",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 2,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 16,
+                    Name = "Barroc Intens Brew",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 3,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 17,
+                    Name = "Barroc Intens Brew ii",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 4,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 18,
+                    Name = "Barroc Intens Brew Pro iii",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 2,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
+                new Product
+                {
+                    Id = 19,
+                    Name = "Barroc Intens Brew iv",
+                    ProductNumber = 23456701,
+                    UnitsInStock = 1,
+                    LeaseCost = 499,
+                    InstallCost = 289,
+                    PricePerKilo = 0, // Niet van toepassing
+                    CategoryId = 1
+                },
                 // Koffiebonen
                 new Product
                 {
                     Id = 5,
-                    name = "Espresso Beneficio",
+                    Name = "Espresso Beneficio",
                     ProductNumber = 23912345,
+                    UnitsInStock = 273,
                     LeaseCost = 0, // Niet van toepassing
                     InstallCost = 0, // Niet van toepassing
                     PricePerKilo = 21.60,
@@ -109,8 +188,9 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 6,
-                    name = "Yellow Bourbon Brasil",
+                    Name = "Yellow Bourbon Brasil",
                     ProductNumber = 23912346,
+                    UnitsInStock = 320,
                     LeaseCost = 0, // Niet van toepassing
                     InstallCost = 0, // Niet van toepassing
                     PricePerKilo = 23.20,
@@ -119,8 +199,9 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 7,
-                    name = "Espresso Roma",
+                    Name = "Espresso Roma",
                     ProductNumber = 23912347,
+                    UnitsInStock = 74,
                     LeaseCost = 0, // Niet van toepassing
                     InstallCost = 0, // Niet van toepassing
                     PricePerKilo = 20.80,
@@ -129,13 +210,124 @@ namespace Barroc_intens
                 new Product
                 {
                     Id = 8,
-                    name = "Red Honey Honduras",
+                    Name = "Red Honey Honduras",
                     ProductNumber = 23912348,
+                    UnitsInStock = 37,
                     LeaseCost = 0, // Niet van toepassing
                     InstallCost = 0, // Niet van toepassing
                     PricePerKilo = 27.80,
                     CategoryId = 2
-                }
+                },
+                new Product
+                {
+                    Id = 9,
+                    Name = "Panama Joe's Blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 32,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 10,
+                    Name = "Kentucky Straight Single Origin",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 46,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 11,
+                    Name = "Ipanema Beach Blonde Roast",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 42,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 12,
+                    Name = "Cup'a'Joe Special",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 13,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 20,
+                    Name = "Hot Beans! blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 46,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 21,
+                    Name = "Black Cow blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 42,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 22,
+                    Name = "Stawberry Fields Blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 46,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 23,
+                    Name = "Samba Triste Blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 42,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 24,
+                    Name = "Katy Lied Blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 46,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
+                new Product
+                {
+                    Id = 25,
+                    Name = "Aja Blend",
+                    ProductNumber = 23912348,
+                    UnitsInStock = 42,
+                    LeaseCost = 0, // Niet van toepassing
+                    InstallCost = 0, // Niet van toepassing
+                    PricePerKilo = 27.80,
+                    CategoryId = 2
+                },
             ]);
 
             modelBuilder.Entity<Category>().HasData(categories);
