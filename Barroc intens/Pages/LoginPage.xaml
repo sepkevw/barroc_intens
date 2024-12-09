@@ -1,22 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Page
-    x:Class="Barroc_intens.Pages.LoginPage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Barroc_intens.Pages"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+<Page x:Class="Barroc_intens.Pages.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:local="using:Barroc_intens.Pages"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d"
+      Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Width="600" VerticalAlignment="Center">
-        <TextBox PlaceholderText="Username" Padding="20" Margin="20"/>
-        <TextBox PlaceholderText="Password" Padding="20" Margin="20"/>
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-            <Button x:Name="FinanceButton" Click="FinanceButton_Click" Margin="20">Financiën</Button>
-            <Button x:Name="MaintenanceButton" Click="MaintenanceButton_Click" Margin="20">Onderhoud</Button>
-            <Button x:Name="PurchasingButton" Click="PurchasingButton_Click" Margin="20">Inkoop</Button>
-            <Button x:Name="SalesButton" Click="SalesButton_Click" Margin="20">Verkoop</Button>
+    <StackPanel Width="600"
+                VerticalAlignment="Center">
+        <TextBox PlaceholderText="Username"
+                 Padding="20"
+                 Margin="20" />
+        <TextBox PlaceholderText="Password"
+                 Padding="20"
+                 Margin="20" />
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+            <Button x:Name="FinanceButton"
+                    Click="FinanceButton_Click"
+                    Margin="20">Financiën</Button>
+            <Button x:Name="MaintenanceButton"
+                    Click="MaintenanceButton_Click"
+                    Margin="20">Onderhoud</Button>
+            <Button x:Name="PurchasingButton"
+                    Click="PurchasingButton_Click"
+                    Margin="20">Inkoop</Button>
+            <Button x:Name="SalesButton"
+                    Click="SalesButton_Click"
+                    Margin="20">Verkoop</Button>
         </StackPanel>
     </StackPanel>
 </Page>
