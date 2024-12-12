@@ -46,10 +46,11 @@ namespace Barroc_intens.Pages
         {
             using var conn = new AppDbContext();
             var dbUser = conn.Users.FirstOrDefault(u => u.Username == UsernameInput.Text);
+
             
             if(dbUser == null)
             {
-                ErrorMessage.Text = "User not found.";
+                ErrorMessage.Text = "Password or Username is wrong.";
             } else
             {
                 var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
@@ -82,6 +83,9 @@ namespace Barroc_intens.Pages
                             Frame.Navigate(typeof(LoginPage));
                             break;
                     }
+                } else
+                {
+                    ErrorMessage.Text = "Password or Username is wrong.";
                 }
             }
         }
