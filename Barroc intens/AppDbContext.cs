@@ -11,7 +11,6 @@ namespace Barroc_intens
 {
     internal class AppDbContext : DbContext
     {
-
         public DbSet<Category> Categories { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<CustomerContactPerson> CustomerContactPersons { get; set; }
@@ -51,7 +50,6 @@ namespace Barroc_intens
                 new Role { Id = 11, RoleName = "TechnicalService" },
                 new Role { Id = 12, RoleName = "Planner" }
                 );
-
 
             //products en category seeder
             var products = new List<Product>();
@@ -168,7 +166,6 @@ namespace Barroc_intens
             modelBuilder.Entity<User>().HasData(users);
             modelBuilder.Entity<Category>().HasData(categories);
             modelBuilder.Entity<Product>().HasData(products);
-
         }
     }
 }
