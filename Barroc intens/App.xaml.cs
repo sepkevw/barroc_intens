@@ -30,6 +30,7 @@ namespace Barroc_intens
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        public static Window MainWindow { get; private set; }
         public App()
         {
             this.InitializeComponent();
@@ -42,9 +43,21 @@ namespace Barroc_intens
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
             m_window = new MainWindow();
+            MainWindow = m_window;
             m_window.Activate();
         }
 
         private Window m_window;
+
+        public static bool TryGoBack()
+        {
+            if (MainWindow.Content is Frame rootFrame && rootFrame.CanGoBack)
+            {
+                rootFrame.GoBack();
+                return true;
+            }
+            return false;
+        }
+
     }
 }
