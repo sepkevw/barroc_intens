@@ -15,6 +15,8 @@ using Microsoft.UI.Xaml.Navigation;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
+using Barroc_intens.Models;
+using Windows.UI.Popups;
 
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
@@ -57,6 +59,16 @@ namespace Barroc_intens.Pages
             }
         }
 
-
+        private void dashboardListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            var selectedAppointment = e.ClickedItem as Appointment;
+            if(selectedAppointment != null)
+            {
+                var appointmentDialog = new ContentDialog
+                {
+                    
+                };
+            }
+        }
     }
 }
