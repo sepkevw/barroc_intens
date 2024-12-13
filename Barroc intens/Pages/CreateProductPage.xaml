@@ -13,10 +13,69 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="auto"/>
+            
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <StackPanel Grid.Column="0" 
+                    x:Name="MainCreateFormStackPanel" 
+                    Margin="65,8.5"
+                    HorizontalAlignment="Left">
+            <TextBlock FontSize="28" Text="Nieuw Product" Margin="5, 10, 0, 45"/>
+
+            <TextBlock Text="Naam" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="ProductNameTb" 
+                     Margin="0, 7, 0, 7" 
+                     Width="525"/>
+
+            <TextBlock Text="Prod. nummer" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="ProdnumberTb" 
+                     Margin="0, 7, 0, 7"
+                     Width="525"/>
+
+            <TextBlock Text="Categorie" 
+                       Margin="0, 7, 0, 5"/>
+            <ComboBox x:Name="ComboBoxCb" 
+                      Margin="0, 7, 0, 7"
+                      Width="175">
+                <ComboBoxItem Content="Koffiebonen"/>
+                <ComboBoxItem Content="Automaat" />
+            </ComboBox>
+            
+            <TextBlock Text="Aant. voorradig" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="UnitsInStockTb" 
+                       Margin="0, 7, 0, 7"
+                       Width="525"/>
+
+            <TextBlock Text="Aansluitings Kost" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="InstallCostTb" 
+                     PlaceholderText="Leeg laten indien         ontoepasselijk" 
+                     PlaceholderForeground="#9A9BA1" 
+                     Margin="0, 7, 0, 7"
+                     Width="525"/>
+
+            <TextBlock Text="lease Kost" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="LeaseCostTb" 
+                     PlaceholderText="Leeg laten indien ontoepasselijk" 
+                     PlaceholderForeground="#9A9BA1" 
+                     Margin="0, 7, 0, 7"
+                     Width="525"/>
+
+            <TextBlock Text="Prijs/KG" 
+                       Margin="0, 7, 0, 5"/>
+            <TextBox x:Name="PricePerKiloTb" 
+                     Margin="0, 7, 0, 7" 
+                     PlaceholderText="Leeg laten indien ontoepasselijk" 
+                     PlaceholderForeground="#9A9BA1" 
+                     Width="525"/>
+        </StackPanel>
 
         <StackPanel x:Name="buttonStackPanel" 
                 Orientation="Vertical"
