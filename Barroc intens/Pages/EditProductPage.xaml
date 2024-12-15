@@ -22,7 +22,7 @@
             x:Name="MainEditFormStackPanel" 
             Margin="65,8.5"
             HorizontalAlignment="Left">
-            <TextBlock FontSize="28" Text="Nieuw Product" Margin="5, 10, 0, 45"/>
+            <TextBlock FontSize="28" Text="Bewerk Product" Margin="5, 10, 0, 45"/>
 
             <TextBlock Text="Naam" 
                Margin="0, 7, 0, 5"/>
@@ -33,17 +33,23 @@
             <TextBlock Text="Prod. nummer" 
                Margin="0, 7, 0, 5"/>
             <TextBox x:Name="ProdnumberTb" 
+                     Text=""
              Margin="0, 7, 0, 7"
              Width="525"/>
 
-            <TextBlock Text="Categorie" 
-               Margin="0, 7, 0, 5"/>
-            <ComboBox x:Name="ComboBoxCb" 
+        <StackPanel Orientation="Vertical">
+                <TextBlock Text="Categorie" Margin="0, 7, 0, 5"/>
+                <StackPanel Orientation="Horizontal">
+                    <ComboBox x:Name="ComboBoxCb" 
               Margin="0, 7, 0, 7"
               Width="175">
                 <ComboBoxItem Content="Koffiebonen"/>
                 <ComboBoxItem Content="Automaat" />
             </ComboBox>
+
+            <TextBlock Text="Leeg laten indien categrie onveranderd blijft"/>
+            </StackPanel>
+        </StackPanel>
 
             <TextBlock Text="Aant. voorradig" 
                Margin="0, 7, 0, 5"/>
@@ -54,7 +60,7 @@
             <TextBlock Text="Aansluitings Kost" 
                Margin="0, 7, 0, 5"/>
             <TextBox x:Name="InstallCostTb" 
-             PlaceholderText="Leeg laten indien         ontoepasselijk" 
+             PlaceholderText="Leeg laten indien ontoepasselijk" 
              PlaceholderForeground="#9A9BA1" 
              Margin="0, 7, 0, 7"
              Width="525"/>
@@ -75,8 +81,6 @@
              PlaceholderForeground="#9A9BA1" 
              Width="525"/>
         </StackPanel>
-
-
 
         <StackPanel x:Name="buttonStackPanel" 
         Orientation="Vertical"
