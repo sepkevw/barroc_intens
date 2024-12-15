@@ -9,7 +9,6 @@ namespace Barroc_intens.Models
     internal class Appointment
     {
         public int Id { get; set; }
-        //public int CustomerId { get; set; }
         public DateTime Date { get; set; }
         public int Duration { get; set; }
         public string Description { get; set; }
