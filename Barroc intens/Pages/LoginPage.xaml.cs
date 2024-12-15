@@ -47,7 +47,22 @@ namespace Barroc_intens.Pages
 
         private void SalesButton_Click(object sender, RoutedEventArgs e)
         {
+
+
             Frame.Navigate(typeof(SalesDashboardPage));
+            DisplayDialog("hoihoi", "Welcome");
+        }
+        private async void DisplayDialog( string message, string title)
+        {
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                XamlRoot = this.XamlRoot,
+                Title = title,
+                Content = message,
+                CloseButtonText = "Ok"
+            };
+
+            await noWifiDialog.ShowAsync();
         }
     }
 }
