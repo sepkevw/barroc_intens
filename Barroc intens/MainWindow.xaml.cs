@@ -13,8 +13,9 @@ namespace Barroc_intens
             using var connection = new AppDbContext();
             connection.Database.EnsureDeleted();
             connection.Database.EnsureCreated();
-
+            
             contentFrame.Navigate(typeof(LoginPage));
         }
+
     }
 }
