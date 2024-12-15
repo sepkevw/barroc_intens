@@ -55,7 +55,7 @@ namespace Barroc_intens.Pages
 
         private void go2EditViewButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(EditProductPage)); 
+            Frame.Navigate(typeof(EditProductPage), selectedProduct); 
         }
 
         private async void deleteItemButton_Click(object sender, RoutedEventArgs e)
