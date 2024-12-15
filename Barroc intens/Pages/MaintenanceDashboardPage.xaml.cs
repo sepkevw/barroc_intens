@@ -8,9 +8,6 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace Barroc_intens.Pages
 {
     public sealed partial class MaintenanceDashboardPage : Page
@@ -36,9 +33,11 @@ namespace Barroc_intens.Pages
             try
             {
                 using var conn = new AppDbContext();
-                var appointments = await conn.Appointments.ToListAsync();
+                var appointments = await conn.Appointments
+                    .Include(u => u.User)
+                    .ToListAsync();
 
-                dashboardListView.ItemsSource = appointments;
+                DashboardListView.ItemsSource = appointments;
             }
             catch (Exception ex)
             {
@@ -48,13 +47,9 @@ namespace Barroc_intens.Pages
 
         private void dashboardListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            var selectedAppointment = e.ClickedItem as Appointment;
-            if(selectedAppointment != null)
+            if (e.ClickedItem is Appointment clickedAppointment)
             {
-                var appointmentDialog = new ContentDialog
-                {
-                    
-                };
+                AppointmentDetailView.DataContext = clickedAppointment;
             }
         }
 
@@ -65,21 +60,21 @@ namespace Barroc_intens.Pages
 
             if (string.IsNullOrWhiteSpace(filterText))
             {
-                // If no filter, reset to original data
-                dashboardListView.ItemsSource = conn.Appointments.ToList();
+                DashboardListView.ItemsSource = conn.Appointments.ToList();
             }
             else
             {
-                // Apply filtering on Name (Description) and Date
-                var filteredAppointments = conn.Appointments.ToList()
+                var filteredAppointments = conn.Appointments
+                    .Include(u => u.User)
+                    .ToList()
                     .Where(a =>
                         (a.Description != null && a.Description.ToLower().Contains(filterText)) ||
-                        (a.Date != null && a.Date.ToString("yyyy-MM-dd").Contains(filterText)) ||
+                        (a.Date.ToString("yyyy-MM-dd").Contains(filterText)) ||
                         (a.Location != null && a.Location.ToLower().Contains(filterText)) || 
-                        (a.Duration != null && a.Duration.ToString().Contains(filterText)) )
+                        (a.Duration.ToString().Contains(filterText)) )
                     .ToList();
 
-                dashboardListView.ItemsSource = filteredAppointments;
+                DashboardListView.ItemsSource = filteredAppointments;
             }
         }
     }
