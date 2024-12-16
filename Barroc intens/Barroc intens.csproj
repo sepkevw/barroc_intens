@@ -13,8 +13,8 @@
     <EnableMsixTooling>true</EnableMsixTooling>
   </PropertyGroup>
   <ItemGroup>
-    <None Remove="Pages\DashboardPage.xaml" />
     <None Remove="Pages\LoginPage.xaml" />
+    <None Remove="Pages\NavigationHeader.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -45,12 +45,12 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\LoginPage.xaml">
+    <Page Update="Pages\NavigationHeader.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\DashboardPage.xaml">
+    <Page Update="Pages\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

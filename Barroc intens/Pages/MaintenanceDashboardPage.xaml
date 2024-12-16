@@ -24,6 +24,7 @@
             <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
             <TextBlock FontSize="20" Padding="10" VerticalAlignment="Center" FontWeight="SemiBold">Onderhoud</TextBlock>
         </StackPanel>-->
+        <local:NavigationHeader x:Name="navigationHeader"/>
 
         <Grid Grid.Row="1"
               Grid.Column="0">

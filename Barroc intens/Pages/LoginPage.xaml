@@ -8,28 +8,17 @@
       mc:Ignorable="d"
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <StackPanel Width="600"
-                VerticalAlignment="Center">
-        <TextBox PlaceholderText="Username"
-                 Padding="20"
-                 Margin="20" />
-        <TextBox PlaceholderText="Password"
-                 Padding="20"
-                 Margin="20" />
-        <StackPanel Orientation="Horizontal"
-                    HorizontalAlignment="Center">
-            <Button x:Name="FinanceButton"
-                    Click="FinanceButton_Click"
-                    Margin="20">Financiën</Button>
-            <Button x:Name="MaintenanceButton"
-                    Click="MaintenanceButton_Click"
-                    Margin="20">Onderhoud</Button>
-            <Button x:Name="PurchasingButton"
-                    Click="PurchasingButton_Click"
-                    Margin="20">Inkoop</Button>
-            <Button x:Name="SalesButton"
-                    Click="SalesButton_Click"
-                    Margin="20">Verkoop</Button>
+    <StackPanel Width="600" VerticalAlignment="Center">
+        <TextBox x:Name="UsernameInput" PlaceholderText="Username" Padding="20" Margin="20"/>
+        <TextBox x:Name ="PasswordInput" PlaceholderText="Password" Padding="20" Margin="20"/>
+
+        <Button x:Name="LoginButton" Click="LoginButton_Click" Padding="20" Margin="20" Content="Login" Width="100"/>
+        <TextBlock x:Name="ErrorMessage" Padding="20" Margin="20" Foreground="Red"/>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+            <Button x:Name="FinanceButton" Click="FinanceButton_Click" Margin="20">Financiën</Button>
+            <Button x:Name="MaintenanceButton" Click="MaintenanceButton_Click" Margin="20">Onderhoud</Button>
+            <Button x:Name="PurchasingButton" Click="PurchasingButton_Click" Margin="20">Inkoop</Button>
+            <Button x:Name="SalesButton" Click="SalesButton_Click" Margin="20">Verkoop</Button>
         </StackPanel>
     </StackPanel>
 </Page>

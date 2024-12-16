@@ -15,15 +15,14 @@ using Microsoft.UI.Xaml.Navigation;
 
 namespace Barroc_intens.Pages
 {
-    public sealed partial class PurchasingDashboardPage : Page
+    public sealed partial class ProductsPage : Page
     {
-        public PurchasingDashboardPage()
+        public ProductsPage()
         {
             this.InitializeComponent();
-        }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
-        {
-            navigationHeader.ParentFrame = Frame;
+
+            using var conn = new AppDbContext();
+            ProductsListView.ItemsSource = conn.Products;
         }
     }
 }

@@ -15,10 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" Padding="5" Orientation="Horizontal">
-            <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
-            <TextBlock FontSize="20" Padding="10" VerticalAlignment="Center" FontWeight="SemiBold">Inkoop</TextBlock>
-        </StackPanel>
+        <local:NavigationHeader x:Name="navigationHeader"/>
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>

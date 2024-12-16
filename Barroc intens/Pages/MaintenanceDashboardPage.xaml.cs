@@ -22,10 +22,9 @@ namespace Barroc_intens.Pages
         {
             await LoadAppointments();
         }
-
-        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(LoginPage));
+            navigationHeader.ParentFrame = Frame;
         }
 
         private async Task LoadAppointments()

@@ -13,14 +13,8 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace Barroc_intens.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class LoginPage : Page
     {
         public LoginPage()
@@ -45,7 +39,70 @@ namespace Barroc_intens.Pages
 
         private void SalesButton_Click(object sender, RoutedEventArgs e)
         {
+
+
             Frame.Navigate(typeof(SalesDashboardPage));
+            DisplayDialog("hoihoi", "Welcome");
+        }
+        private async void DisplayDialog( string message, string title)
+        {
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                XamlRoot = this.XamlRoot,
+                Title = title,
+                Content = message,
+                CloseButtonText = "Ok"
+            };
+
+            await noWifiDialog.ShowAsync();
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            using var conn = new AppDbContext();
+            var dbUser = conn.Users.FirstOrDefault(u => u.Username == UsernameInput.Text);
+
+            
+            if(dbUser == null)
+            {
+                ErrorMessage.Text = "Password or Username is wrong.";
+            } else
+            {
+                var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
+                if(verifyLogin)
+                {
+                    switch (dbUser.RoleId)
+                    {
+                        case 7:
+                        case 8:
+                            //inkoop / purchasing dept.
+                            Frame.Navigate(typeof(PurchasingDashboardPage));
+                            break;
+                        case 3:
+                        case 4:
+                            //financien / finance 
+                            Frame.Navigate(typeof(FinanceDashboardPage));
+                            break;
+                        case 10:
+                        case 11:
+                        case 12:
+                            //onderhoud / maintenance
+                            Frame.Navigate(typeof(MaintenanceDashboardPage));
+                            break;
+                        case 5:
+                        case 6:
+                            //verkoop / sales
+                            Frame.Navigate(typeof(SalesDashboardPage));
+                            break;
+                        default:
+                            Frame.Navigate(typeof(LoginPage));
+                            break;
+                    }
+                } else
+                {
+                    ErrorMessage.Text = "Password or Username is wrong.";
+                }
+            }
         }
     }
 }
