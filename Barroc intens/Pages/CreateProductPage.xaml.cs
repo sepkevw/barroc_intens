@@ -65,7 +65,7 @@ namespace Barroc_intens.Pages
                     Product newProduct = new()
                     {
                         Name = productName,
-                        ProductNumber = productNumber,
+                        ProductNumber = productNumber,  
                         UnitsInStock = unitsInStock,
                         InstallCost = installCost,
                         LeaseCost = leaseCost,
