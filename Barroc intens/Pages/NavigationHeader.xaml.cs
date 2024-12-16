@@ -30,7 +30,7 @@ namespace Barroc_intens.Pages
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             ParentFrame.Navigate(typeof(LoginPage));
-            DisplayDialog("Uitgelogd", "U bent uitgelogd");
+            DisplayDialog("U bent uitgelogd", "Uitgelogd");
 
 
         }
