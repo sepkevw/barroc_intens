@@ -30,6 +30,21 @@ namespace Barroc_intens.Pages
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
             ParentFrame.Navigate(typeof(LoginPage));
+            DisplayDialog("Uitgelogd", "U bent uitgelogd");
+
+
+        }
+        private async void DisplayDialog(string message, string title)
+        {
+            ContentDialog noWifiDialog = new ContentDialog()
+            {
+                XamlRoot = this.XamlRoot,
+                Title = title,
+                Content = message,
+                CloseButtonText = "Ok"
+            };
+
+            await noWifiDialog.ShowAsync();
         }
     }
 }
