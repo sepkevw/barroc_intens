@@ -6,6 +6,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:local="using:Barroc_intens.Models"
+      xmlns:pages="using:Barroc_intens.Pages"
       mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
@@ -24,7 +25,7 @@
             <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
             <TextBlock FontSize="20" Padding="10" VerticalAlignment="Center" FontWeight="SemiBold">Onderhoud</TextBlock>
         </StackPanel>-->
-        <local:NavigationHeader x:Name="navigationHeader"/>
+        <pages:NavigationHeader x:Name="navigationHeader"/>
 
         <Grid Grid.Row="1"
               Grid.Column="0">

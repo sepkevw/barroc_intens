@@ -32,11 +32,6 @@ namespace Barroc_intens
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Customer>()
-                .HasOne(c => c.ContactPerson)
-                .WithOne(cp => cp.Customer)
-                .HasForeignKey<CustomerContactPerson>(cp => cp.CustomerId);
-                
             modelBuilder.Entity<Role>().HasData(
                 new Role { Id = 1, RoleName = "Admin" },
                 new Role { Id = 2, RoleName = "CEO" },
