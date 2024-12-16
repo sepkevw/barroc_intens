@@ -28,20 +28,18 @@ namespace Barroc_intens.Pages
         public EditProductPage()
         {
             this.InitializeComponent();
-
-            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter is Product product)
+            if (e.Parameter is Product selProduct)
             {
-                selectedProductId = product.Id;    
-                ProductNameTb.Text = product.Name;
-                ProdnumberTb.Text = product.ProductNumber.ToString();
-                int categoryCb = product.CategoryId;
+                selectedProductId = selProduct.Id;    
+                ProductNameTb.Text = selProduct.Name;
+                ProdnumberTb.Text = selProduct.ProductNumber.ToString();
+                int categoryCb = selProduct.CategoryId;
                 if (categoryCb == 1)
                 {
                     ComboBoxCb.SelectedItem = "Automaten";
@@ -50,10 +48,10 @@ namespace Barroc_intens.Pages
                 {
                     ComboBoxCb.SelectedItem = "Koffie Bonen";
                 }
-                UnitsInStockTb.Text = product.UnitsInStock.ToString();
-                InstallCostTb.Text = product.InstallCost.ToString();
-                LeaseCostTb.Text = product.LeaseCost.ToString();
-                PricePerKiloTb.Text = product.PricePerKilo.ToString();
+                UnitsInStockTb.Text = selProduct.UnitsInStock.ToString();
+                InstallCostTb.Text = selProduct.InstallCost.ToString();
+                LeaseCostTb.Text = selProduct.LeaseCost.ToString();
+                PricePerKiloTb.Text = selProduct.PricePerKilo.ToString();
 
             }
         }
@@ -106,8 +104,6 @@ namespace Barroc_intens.Pages
                         CloseButtonText = "Sluit",
                         XamlRoot = this.Content.XamlRoot
                     };
-
-                    Frame.Navigate(typeof(PurchasingDashboardPage));
 
                     await dialog.ShowAsync();
                 }
