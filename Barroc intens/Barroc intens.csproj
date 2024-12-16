@@ -16,6 +16,7 @@
     <None Remove="Pages\CreateProductPage.xaml" />
     <None Remove="Pages\DashboardPage.xaml" />
     <None Remove="Pages\LoginPage.xaml" />
+    <None Remove="Pages\NavigationHeader.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +47,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
+    <Page Update="Pages\NavigationHeader.xaml">
     <Page Update="Pages\EditProductPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -61,7 +63,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\DashboardPage.xaml">
+    <Page Update="Pages\LoginPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

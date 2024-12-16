@@ -15,14 +15,8 @@ using Microsoft.UI.Xaml.Navigation;
 using Barroc_intens.Models;
 using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
-// To learn more about WinUI, the WinUI project structure,
-// and more about our project templates, see: http://aka.ms/winui-project-info.
-
 namespace Barroc_intens.Pages
 {
-    /// <summary>
-    /// An empty page that can be used on its own or navigated to within a Frame.
-    /// </summary>
     public sealed partial class PurchasingDashboardPage : Page
     {
         private static Product selectedProduct;
@@ -42,10 +36,9 @@ namespace Barroc_intens.Pages
                 lowStockGridView.ItemsSource = lowStock;
             }
         }
-
-        private void ReturnButton_Click(object sender, RoutedEventArgs e)
+        protected override void OnNavigatedTo(NavigationEventArgs e)
         {
-            Frame.Navigate(typeof(LoginPage));
+            navigationHeader.ParentFrame = Frame;
         }
 
         private void go2CreateViewButton_Click(object sender, RoutedEventArgs e)

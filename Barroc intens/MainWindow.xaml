@@ -23,6 +23,6 @@
         </Frame>
     </Grid>-->
     <Frame x:Name="contentFrame">
-
+        
     </Frame>
 </Window>
