@@ -41,14 +41,14 @@
             
         </StackPanel>
 
-        <ScrollViewer x:Name="allStockStackPanel" 
+        <ScrollViewer x:Name="AllStockStackPanel" 
                     Grid.Column="0" 
                     Grid.Row="1">
 
             <StackPanel Orientation="Vertical">
                 
             
-            <TextBlock x:Name="dashboardListViewTitle"
+            <TextBlock x:Name="DashboardListViewTitle"
                        
                        Margin="0, 20, 0, 0" 
                        FontSize="20" 
@@ -57,9 +57,9 @@
                        HorizontalAlignment="Left">     
             </TextBlock>
 
-            <ListView x:Name="allStockListView" 
+            <ListView x:Name="AllStockListView" 
                           IsItemClickEnabled="True"
-                          ItemClick="allStockListView_ItemClick"
+                          ItemClick="AllStockListView_ItemClick"
                           Margin="20, 10, 20, 20"
                           >
                 <ListView.ItemTemplate>
@@ -88,7 +88,7 @@
         <StackPanel Grid.Row="1"
             Grid.Column="1">
 
-            <TextBlock x:Name="dashboardGridViewTitle"
+            <TextBlock x:Name="DashboardGridViewTitle"
                 Grid.Row="1" 
                 Margin="0, 20, 0, 0" 
                 FontSize="20" 
@@ -98,11 +98,11 @@
             </TextBlock>
 
             <Grid>
-                <GridView x:Name="lowStockGridView"
+                <GridView x:Name="LowStockGridView"
                         IsItemClickEnabled="True"
-                        ItemClick="lowStockGridView_ItemClick"
+                        ItemClick="LowStockGridView_ItemClick"
                         Margin="20, 5, 20, 20"
-                        MaxHeight="{Binding ActualHeight, ElementName=allStockStackPanel}">
+                        MaxHeight="{Binding ActualHeight, ElementName=AllStockStackPanel}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Background="Black"
@@ -129,7 +129,7 @@
 
         <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
 
-            <Button x:Name="deleteItemButton" 
+            <Button x:Name="DeleteItemButton" 
                 Click="deleteItemButton_Click"           
                 Content="X"
                 Background="#FE6F5E"
@@ -143,7 +143,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2EditViewButton" 
+            <Button x:Name="Go2EditViewButton" 
                 Click="go2EditViewButton_Click"     
                 Content="E"
                 Background="white"
@@ -157,7 +157,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2CreateViewButton" 
+            <Button x:Name="Go2CreateViewButton" 
                 Click="go2CreateViewButton_Click" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"

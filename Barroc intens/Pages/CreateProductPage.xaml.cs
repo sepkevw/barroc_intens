@@ -30,7 +30,7 @@ namespace Barroc_intens.Pages
             this.InitializeComponent();
         }
 
-        private void cancelButton_Click(object sender, RoutedEventArgs e)
+        private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
             //velden legen
             Frame.Navigate(typeof(PurchasingDashboardPage));
@@ -40,23 +40,23 @@ namespace Barroc_intens.Pages
         {
             if (ProductNameTb.Text != null && ProdnumberTb.Text != null && UnitsInStockTb.Text != null && LeaseCostTb.Text != null && InstallCostTb.Text != null && PricePerKiloTb.Text != null && ComboBoxCb.SelectedItem != null)
             {
-                string productName = ProductNameTb.Text;
-                int productNumber = Convert.ToInt32(ProdnumberTb.Text);
-                int unitsInStock = Convert.ToInt32(UnitsInStockTb.Text);
-                double leaseCost = Convert.ToDouble(LeaseCostTb.Text);
-                double installCost = Convert.ToDouble(InstallCostTb.Text);
-                double pricePerKilo = Convert.ToDouble(PricePerKiloTb.Text);
+                string ProductName = ProductNameTb.Text;
+                int ProductNumber = Convert.ToInt32(ProdnumberTb.Text);
+                int UnitsInStock = Convert.ToInt32(UnitsInStockTb.Text);
+                double LeaseCost = Convert.ToDouble(LeaseCostTb.Text);
+                double InstallCost = Convert.ToDouble(InstallCostTb.Text);
+                double PricePerKilo = Convert.ToDouble(PricePerKiloTb.Text);
                 
-                var selectedCategory = ComboBoxCb.SelectionBoxItem.ToString();
-                int selectedCategoryToInt = 0;
+                var SelectedCategory = ComboBoxCb.SelectionBoxItem.ToString();
+                int SelectedCategoryToInt = 0;
 
-                if (selectedCategory == "Koffiebonen")
+                if (SelectedCategory == "Koffiebonen")
                 {
-                    selectedCategoryToInt = 2;
+                    SelectedCategoryToInt = 2;
                 }
-                if (selectedCategory == "Automaat")
+                if (SelectedCategory == "Automaat")
                 {
-                    selectedCategoryToInt = 1;
+                    SelectedCategoryToInt = 1;
                 }
 
                 using (var connection = new AppDbContext())
@@ -64,13 +64,13 @@ namespace Barroc_intens.Pages
 
                     Product newProduct = new()
                     {
-                        Name = productName,
-                        ProductNumber = productNumber,
-                        UnitsInStock = unitsInStock,
-                        InstallCost = installCost,
-                        LeaseCost = leaseCost,
-                        PricePerKilo = pricePerKilo,
-                        CategoryId = selectedCategoryToInt,
+                        Name = ProductName,
+                        ProductNumber = ProductNumber,
+                        UnitsInStock = UnitsInStock,
+                        InstallCost = InstallCost,
+                        LeaseCost = LeaseCost,
+                        PricePerKilo = PricePerKilo,
+                        CategoryId = SelectedCategoryToInt,
                     };
 
                     connection.Products.Add(newProduct);    
@@ -79,7 +79,7 @@ namespace Barroc_intens.Pages
                     var dialog = new ContentDialog
                     {
                         Title = "Voor elkaar!",
-                        Content = productName + " is opgeslagen",
+                        Content = ProductName + " is opgeslagen",
                         CloseButtonText = "Sluit",
                         XamlRoot = this.Content.XamlRoot
                     };

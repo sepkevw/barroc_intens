@@ -55,7 +55,7 @@
             <TextBlock Text="Aansluitings Kost" 
                        Margin="0, 7, 0, 5"/>
             <TextBox x:Name="InstallCostTb" 
-                     PlaceholderText="Leeg laten indien         ontoepasselijk" 
+                     PlaceholderText="Leeg laten indien ontoepasselijk" 
                      PlaceholderForeground="#9A9BA1" 
                      Margin="0, 7, 0, 7"
                      Width="525"/>

@@ -25,21 +25,21 @@ namespace Barroc_intens.Pages
     /// </summary>
     public sealed partial class PurchasingDashboardPage : Page
     {
-        private static Product selectedProduct;
+        private static Product SelectedProduct;
         public PurchasingDashboardPage()
         {
             this.InitializeComponent();
 
             using (var connection = new AppDbContext())
             {
-                var products = connection.Products;
+                var Products = connection.Products;
 
-                var lowStock = connection.Products
+                var LowStock = connection.Products
                                .ToList()
                                .Where(p => p.UnitsInStock <= 50);
 
-                allStockListView.ItemsSource = products;
-                lowStockGridView.ItemsSource = lowStock;
+                AllStockListView.ItemsSource = Products;
+                LowStockGridView.ItemsSource = LowStock;
             }
         }
 
@@ -48,21 +48,21 @@ namespace Barroc_intens.Pages
             Frame.Navigate(typeof(LoginPage));
         }
 
-        private void go2CreateViewButton_Click(object sender, RoutedEventArgs e)
+        private void Go2CreateViewButton_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(CreateProductPage));
         }
 
-        private void go2EditViewButton_Click(object sender, RoutedEventArgs e)
+        private void Go2EditViewButton_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(EditProductPage), selectedProduct); 
+            Frame.Navigate(typeof(EditProductPage), SelectedProduct); 
         }
 
-        private async void deleteItemButton_Click(object sender, RoutedEventArgs e)
+        private async void DeleteItemButton_Click(object sender, RoutedEventArgs e)
         {
-            if (selectedProduct != null)
+            if (SelectedProduct != null)
             {
-                var deleteDialog = new ContentDialog
+                var DeleteDialog = new ContentDialog
                 {
                     Title = "Bevestig Verwijdering",
                     Content = "Verwijderen in permanent en is niet ongedaan te maken (Permanent dus).",
@@ -72,24 +72,24 @@ namespace Barroc_intens.Pages
                     XamlRoot = this.Content.XamlRoot
                 };
 
-                var result = await deleteDialog.ShowAsync();
+                var Result = await DeleteDialog.ShowAsync();
 
-                if (result == ContentDialogResult.Primary)
+                if (Result == ContentDialogResult.Primary)
                 {
-                    using (var connection = new AppDbContext())
+                    using (var Connection = new AppDbContext())
                     {
-                        var product2BeRemoved = connection.Products.Single(p => p.Id == selectedProduct.Id);
-                        connection.Products.Remove(product2BeRemoved);
-                        connection.SaveChanges();
+                        var Product2BeRemoved = Connection.Products.Single(p => p.Id == SelectedProduct.Id);
+                        Connection.Products.Remove(Product2BeRemoved);
+                        Connection.SaveChanges();
 
-                        var products = connection.Products;
+                        var Products = Connection.Products;
 
-                        var lowStock = connection.Products
+                        var LowStock = Connection.Products
                                        .ToList()
                                        .Where(p => p.UnitsInStock <= 50);
 
-                        allStockListView.ItemsSource = products;
-                        lowStockGridView.ItemsSource = lowStock;
+                        AllStockListView.ItemsSource = Products;
+                        LowStockGridView.ItemsSource = LowStock;
                     }
                 }
                 else
@@ -99,24 +99,24 @@ namespace Barroc_intens.Pages
             }
         }
 
-        private void lowStockGridView_ItemClick(object sender, ItemClickEventArgs e)
+        private void LowStockGridView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            selectedProduct = (Product)e.ClickedItem;
+            SelectedProduct = (Product)e.ClickedItem;
 
-            allStockListView.SelectedItem = null;
+            AllStockListView.SelectedItem = null;
 
-            go2EditViewButton.Visibility = Visibility.Visible;
-            deleteItemButton.Visibility = Visibility.Visible;
+            Go2EditViewButton.Visibility = Visibility.Visible;
+            DeleteItemButton.Visibility = Visibility.Visible;
         }
 
-        private void allStockListView_ItemClick(object sender, ItemClickEventArgs e)
+        private void AllStockListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            selectedProduct = (Product)e.ClickedItem;
+            SelectedProduct = (Product)e.ClickedItem;
 
-            lowStockGridView.SelectedItem = null;
+            LowStockGridView.SelectedItem = null;
 
-            go2EditViewButton.Visibility = Visibility.Visible;
-            deleteItemButton.Visibility = Visibility.Visible;
+            Go2EditViewButton.Visibility = Visibility.Visible;
+            DeleteItemButton.Visibility = Visibility.Visible;
         }
     }
 }    
