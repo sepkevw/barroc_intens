@@ -92,10 +92,6 @@ namespace Barroc_intens.Pages
                         lowStockGridView.ItemsSource = lowStock;
                     }
                 }
-                else
-                {
-                   
-                }
             }
         }
 
