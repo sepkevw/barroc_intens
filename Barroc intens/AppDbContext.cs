@@ -233,7 +233,7 @@ namespace Barroc_intens
             modelBuilder.Entity<Product>().HasData(products);
             modelBuilder.Entity<Appointment>().HasData(appointments);
 
-            modelBuilder.Entity<Customer>().HasData(appointments);
+            modelBuilder.Entity<Customer>().HasData(customers);
             modelBuilder.Entity<CustomerContactPerson>().HasData(contactPerson);
         }
     }

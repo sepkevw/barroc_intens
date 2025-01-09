@@ -16,9 +16,9 @@ namespace Barroc_intens.Models
         public DateTime UpdatedAt { get; set; }
         public int UserId { get; set; }
         public string Location { get; set; } = string.Empty;
+
         public User User { get; set; }
-        
-        //public Customer Customer { get; set; }
-        //public List<CustomerAppointment> CustomerAppointments { get; set; }
+        public List<CustomerAppointment> CustomerAppointments { get; set; }
     }
+
 }

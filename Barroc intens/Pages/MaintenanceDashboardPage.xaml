@@ -21,10 +21,6 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
-        <!--<StackPanel Grid.Row="0" VerticalAlignment="Center" Padding="5" Orientation="Horizontal">
-            <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
-            <TextBlock FontSize="20" Padding="10" VerticalAlignment="Center" FontWeight="SemiBold">Onderhoud</TextBlock>
-        </StackPanel>-->
         <pages:NavigationHeader x:Name="navigationHeader"/>
 
         <Grid Grid.Row="1"
@@ -41,20 +37,20 @@
                        Grid.Row="0"
                        Margin="0, 20, 0, 1"
                        FontSize="20"
-                       Padding="50, 0, 50, 10">
+                       Padding="50, 0, 50, 10"
+                       HorizontalAlignment="Left">
         Gepland onderhoud
             </TextBlock>
 
-            <!--<Button x:Name="ReturnButton"
-                    Content="Return"
+            <Button x:Name="AddAppointmentButton"
                     Grid.Column="0"
                     Grid.Row="0"
-                    HorizontalAlignment="Left"
-                    VerticalAlignment="Top"
-                    Margin="20, 10, 0, 0"
-                    Click="ReturnButton_Click" />-->
+                    HorizontalAlignment="Right"
+                    Content="+"
+                    FontWeight="ExtraBold"
+                    FontSize="25"
+                    Click="AddAppointmentButton_OnClick"/>
 
-            <!-- Filter TextBox -->
             <TextBox x:Name="FilterTextBox"
                      Grid.Column="0"
                      Grid.Row="1"

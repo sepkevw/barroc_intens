@@ -16,5 +16,7 @@ namespace Barroc_intens.Models
         public string Description { get; set; }
 
         public List<CustomerContactPerson> ContactPerson { get; set; }
+        public List<CustomerAppointment> CustomerAppointments { get; set; }
     }
+
 }
