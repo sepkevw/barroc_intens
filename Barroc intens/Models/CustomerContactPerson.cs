@@ -12,7 +12,6 @@ namespace Barroc_intens.Models
         public string Name { get; set; }
         public string Email { get; set; }
         public int CustomerId { get; set; }
-
         public Customer Customer { get; set; }
     }
 }
