@@ -39,6 +39,7 @@ namespace Barroc_intens.Pages
                 selectedProductId = selProduct.Id;    
                 ProductNameTb.Text = selProduct.Name;
                 ProdnumberTb.Text = selProduct.ProductNumber.ToString();
+
                 int categoryCb = selProduct.CategoryId;
                 if (categoryCb == 1)
                 {
@@ -48,6 +49,7 @@ namespace Barroc_intens.Pages
                 {
                     ComboBoxCb.SelectedItem = "Koffie Bonen";
                 }
+
                 UnitsInStockTb.Text = selProduct.UnitsInStock.ToString();
                 InstallCostTb.Text = selProduct.InstallCost.ToString();
                 LeaseCostTb.Text = selProduct.LeaseCost.ToString();
@@ -55,7 +57,6 @@ namespace Barroc_intens.Pages
 
             }
         }
-
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -87,7 +88,7 @@ namespace Barroc_intens.Pages
                             installCost = 0;
                         }
                         product.InstallCost = installCost;
-                        if (PricePerKiloTb.Text.Length < 0)
+                        if (PricePerKiloTb.Text.Length < 1)
                         {
                             pricePerKilo = 0;
                         }
@@ -113,7 +114,7 @@ namespace Barroc_intens.Pages
                 var dialog = new ContentDialog
                 {
                     Title = "Waarschuwing:",
-                    Content = "Een or meerdere velden is leeggelaten!",
+                    Content = "Een of meerdere velden is leeggelaten of verkeerd ingevuld!",
                     CloseButtonText = "Sluit",
                     XamlRoot = this.Content.XamlRoot
                 };

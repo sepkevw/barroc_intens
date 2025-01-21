@@ -38,7 +38,27 @@ namespace Barroc_intens.Pages
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            if (ProductNameTb.Text != null && ProdnumberTb.Text != null && UnitsInStockTb.Text != null && LeaseCostTb.Text != null && InstallCostTb.Text != null && PricePerKiloTb.Text != null && ComboBoxCb.SelectedItem != null)
+            string ProdNumberAsString = ProdnumberTb.Text;
+            
+            bool ProdNumberIsNumerical = int.TryParse(ProdNumberAsString, out _);
+
+            string UnitsInStockAsString = UnitsInStockTb.Text;
+            bool UnitsInStockIsNumerical = int.TryParse(UnitsInStockAsString, out _); ;
+
+            string LeaseCostAsString = LeaseCostTb.Text;
+            bool LeaseCostIsNumerical = int.TryParse(LeaseCostAsString, out _); ;
+            ;
+
+            string InstallCostAsString = InstallCostTb.Text;
+            bool InstallCostIsNumerical = int.TryParse(InstallCostAsString, out _); ;
+
+
+            string PricePerKiloAsString = PricePerKiloTb.Text;
+            bool PricePerKiloIsNumerical = int.TryParse(PricePerKiloAsString, out _); ;
+
+
+
+            if (ProductNameTb.Text.Length >= 0 && ProdnumberTb.Text.Length >= 0 && UnitsInStockTb.Text.Length >= 0 && LeaseCostTb.Text != null && InstallCostTb.Text.Length >= 0 && PricePerKiloTb.Text.Length >= 0 && ComboBoxCb.SelectedItem != null && ProdNumberIsNumerical == true && UnitsInStockIsNumerical == true && LeaseCostIsNumerical == true && InstallCostIsNumerical == true && PricePerKiloIsNumerical == true)
             {
                 string ProductName = ProductNameTb.Text;
                 int ProductNumber = Convert.ToInt32(ProdnumberTb.Text);
@@ -76,7 +96,7 @@ namespace Barroc_intens.Pages
                     connection.Products.Add(newProduct);    
                     connection.SaveChanges();
 
-                    var dialog = new ContentDialog
+                    var Dialog = new ContentDialog
                     {
                         Title = "Voor elkaar!",
                         Content = ProductName + " is opgeslagen",
@@ -86,20 +106,20 @@ namespace Barroc_intens.Pages
 
                     Frame.Navigate(typeof(PurchasingDashboardPage));
 
-                    await dialog.ShowAsync();
+                    await Dialog.ShowAsync();
                 }
             }
             else
             {
-                var dialog = new ContentDialog
+                var Dialog = new ContentDialog
                 {
                     Title = "Waarschuwing:",
-                    Content = "Een or meerdere velden is leeggelaten!",
+                    Content = "Een or meerdere velden is leeggelaten of verkeerd ingevuld!",
                     CloseButtonText = "Sluit",
                     XamlRoot = this.Content.XamlRoot
                 };
 
-                await dialog.ShowAsync();
+                await Dialog.ShowAsync();
             }
         }
     }
