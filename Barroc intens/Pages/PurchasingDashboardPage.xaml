@@ -38,40 +38,45 @@
                        FontWeight="SemiBold"
                        Text="Inkoop">
             </TextBlock>
+            
         </StackPanel>
 
-        <ScrollViewer x:Name="allStockStackPanel" 
+        <ScrollViewer x:Name="AllStockStackPanel" 
                     Grid.Column="0" 
                     Grid.Row="1">
+
             <StackPanel Orientation="Vertical">
+                
+            
+            <TextBlock x:Name="DashboardListViewTitle"
+                       
+                       Margin="0, 20, 0, 0" 
+                       FontSize="20" 
+                       Padding="50, 0, 50, 10"
+                       Text="Alle Producten"
+                       HorizontalAlignment="Left">     
+            </TextBlock>
 
-                <TextBlock x:Name="dashboardListViewTitle"
-                           Margin="0, 20, 0, 0" 
-                           FontSize="20" 
-                           Padding="50, 0, 50, 10"
-                           Text="Alle Producten"
-                           HorizontalAlignment="Left">
-                </TextBlock>
-
-                <ListView x:Name="allStockListView" 
+            <ListView x:Name="AllStockListView" 
                           IsItemClickEnabled="True"
-                          ItemClick="allStockListView_ItemClick"
-                          Margin="20, 10, 20, 20">
-                    <ListView.ItemTemplate>
+                          ItemClick="AllStockListView_ItemClick"
+                          Margin="20, 10, 20, 20"
+                          >
+                <ListView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Height="75"
-                            Background="#FACA16"
-                            Margin="0, 0, 0, 8">
+                                Background="#FACA16"
+                                Margin="0, 0, 0, 8">
                                 <StackPanel Orientation="Horizontal" 
-                                        MaxWidth="300" HorizontalAlignment="Left">
+                                            MaxWidth="300" HorizontalAlignment="Left">
                                     <TextBlock Text="{x:Bind Name}" 
-                                            Foreground="Black"
-                                            FontWeight="Bold"
-                                            Margin="5,5,5,15"
-                                            TextWrapping="Wrap"/>
+                                               Foreground="Black"
+                                               FontWeight="Bold"
+                                               Margin="5,5,5,15"
+                                               TextWrapping="Wrap"/>
                                     <TextBlock Text="{x:Bind UnitsInStock}"
-                                            Foreground="Black"
-                                            Margin="5,5,5,5 "/>
+                                               Foreground="Black"
+                                               Margin="5,5,5,5 "/>
                                 </StackPanel>
                             </StackPanel>
                         </DataTemplate>
@@ -82,7 +87,8 @@
 
         <StackPanel Grid.Row="1"
             Grid.Column="1">
-            <TextBlock x:Name="dashboardGridViewTitle"
+
+            <TextBlock x:Name="DashboardGridViewTitle"
                 Grid.Row="1" 
                 Margin="0, 20, 0, 0" 
                 FontSize="20" 
@@ -92,11 +98,11 @@
             </TextBlock>
 
             <Grid>
-                <GridView x:Name="lowStockGridView"
+                <GridView x:Name="LowStockGridView"
                         IsItemClickEnabled="True"
-                        ItemClick="lowStockGridView_ItemClick"
+                        ItemClick="LowStockGridView_ItemClick"
                         Margin="20, 5, 20, 20"
-                        MaxHeight="{Binding ActualHeight, ElementName=allStockStackPanel}">
+                        MaxHeight="{Binding ActualHeight, ElementName=AllStockStackPanel}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Background="Black"
@@ -122,7 +128,8 @@
         </StackPanel>
 
         <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button x:Name="deleteItemButton" 
+
+            <Button x:Name="DeleteItemButton" 
                 Click="deleteItemButton_Click"           
                 Content="X"
                 Background="#FE6F5E"
@@ -136,7 +143,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2EditViewButton" 
+            <Button x:Name="Go2EditViewButton" 
                 Click="go2EditViewButton_Click"     
                 Content="E"
                 Background="white"
@@ -150,7 +157,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2CreateViewButton" 
+            <Button x:Name="Go2CreateViewButton" 
                 Click="go2CreateViewButton_Click" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"
