@@ -14,14 +14,14 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-
-        <local:NavigationHeader x:Name="navigationHeader"/>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
             <ColumnDefinition Width="Auto"/>
         </Grid.ColumnDefinitions>
+
+        <local:NavigationHeader x:Name="navigationHeader" />
 
         <StackPanel Grid.Row="0"
                     Grid.Column="0"
@@ -30,10 +30,10 @@
                     Padding="5"
                     Orientation="Horizontal"
                     Margin="8,5,8,5">
-            <Button x:Name="ReturnButton"
+            <!--<Button x:Name="ReturnButton"
                     Click="ReturnButton_Click"
                     Content="Terug">
-            </Button>
+            </Button>-->
             <TextBlock FontSize="28"
                        Padding="10"
                        VerticalAlignment="Center"
