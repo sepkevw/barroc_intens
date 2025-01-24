@@ -16,7 +16,6 @@
     <None Remove="Pages\CreateProductPage.xaml" />
     <None Remove="Pages\DashboardPage.xaml" />
     <None Remove="Pages\LoginPage.xaml" />
-    <None Remove="Pages\NavigationHeader.xaml" />
   </ItemGroup>
 
   <ItemGroup>
@@ -63,7 +62,7 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Pages\LoginPage.xaml">
+    <Page Update="Pages\DashboardPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>

@@ -34,13 +34,12 @@ namespace Barroc_intens.Pages
         {
             base.OnNavigatedTo(e);
 
-            if (e.Parameter is Product selProduct)
+            if (e.Parameter is Product product)
             {
-                selectedProductId = selProduct.Id;    
-                ProductNameTb.Text = selProduct.Name;
-                ProdnumberTb.Text = selProduct.ProductNumber.ToString();
-
-                int categoryCb = selProduct.CategoryId;
+                selectedProductId = product.Id;    
+                ProductNameTb.Text = product.Name;
+                ProdnumberTb.Text = product.ProductNumber.ToString();
+                int categoryCb = product.CategoryId;
                 if (categoryCb == 1)
                 {
                     ComboBoxCb.SelectedItem = "Automaten";
@@ -49,11 +48,10 @@ namespace Barroc_intens.Pages
                 {
                     ComboBoxCb.SelectedItem = "Koffie Bonen";
                 }
-
-                UnitsInStockTb.Text = selProduct.UnitsInStock.ToString();
-                InstallCostTb.Text = selProduct.InstallCost.ToString();
-                LeaseCostTb.Text = selProduct.LeaseCost.ToString();
-                PricePerKiloTb.Text = selProduct.PricePerKilo.ToString();
+                UnitsInStockTb.Text = product.UnitsInStock.ToString();
+                InstallCostTb.Text = product.InstallCost.ToString();
+                LeaseCostTb.Text = product.LeaseCost.ToString();
+                PricePerKiloTb.Text = product.PricePerKilo.ToString();
 
             }
         }
@@ -88,7 +86,7 @@ namespace Barroc_intens.Pages
                             installCost = 0;
                         }
                         product.InstallCost = installCost;
-                        if (PricePerKiloTb.Text.Length < 1)
+                        if (PricePerKiloTb.Text.Length < 1) //was 0 in merge conflict #85
                         {
                             pricePerKilo = 0;
                         }
@@ -106,6 +104,7 @@ namespace Barroc_intens.Pages
                         XamlRoot = this.Content.XamlRoot
                     };
 
+                    Frame.Navigate(typeof(PurchasingDashboardPage)); //was weggehaald in merge conflict
                     await dialog.ShowAsync();
                 }
             }

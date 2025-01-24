@@ -14,7 +14,7 @@
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
@@ -30,10 +30,12 @@
                     Padding="5"
                     Orientation="Horizontal"
                     Margin="8,5,8,5">
+
             <!--<Button x:Name="ReturnButton"
                     Click="ReturnButton_Click"
                     Content="Terug">
             </Button>-->
+
             <TextBlock FontSize="28"
                        Padding="10"
                        VerticalAlignment="Center"
@@ -44,13 +46,17 @@
         </StackPanel>
 
         <ScrollViewer x:Name="AllStockStackPanel" 
+
+        <local:NavigationHeader x:Name="navigationHeader"/>
+
+        <ScrollViewer x:Name="allStockStackPanel" 
                     Grid.Column="0" 
                     Grid.Row="1">
 
             <StackPanel Orientation="Vertical">
                 
-            
             <TextBlock x:Name="DashboardListViewTitle"
+
                        
                        Margin="0, 20, 0, 0" 
                        FontSize="20" 
@@ -62,8 +68,7 @@
             <ListView x:Name="AllStockListView" 
                           IsItemClickEnabled="True"
                           ItemClick="AllStockListView_ItemClick"
-                          Margin="20, 10, 20, 20"
-                          >
+                          Margin="20, 10, 20, 20">
                 <ListView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Height="75"
