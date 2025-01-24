@@ -15,6 +15,7 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+<<<<<<< HEAD
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="2*"/>
@@ -40,6 +41,9 @@
             </TextBlock>
             
         </StackPanel>
+=======
+        <local:NavigationHeader x:Name="navigationHeader"/>
+>>>>>>> 3f101b491d55bf802f3da85b90fefd947857afea
 
         <ScrollViewer x:Name="allStockStackPanel" 
                     Grid.Column="0" 
