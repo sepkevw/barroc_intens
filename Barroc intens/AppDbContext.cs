@@ -397,7 +397,6 @@ namespace Barroc_intens
                     Id = 2,
                     CustomerId = 1
                 }
-                ]);
             ]);
 
             modelBuilder.Entity<Category>().HasData(categories);

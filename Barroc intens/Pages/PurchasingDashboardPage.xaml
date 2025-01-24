@@ -42,14 +42,12 @@
                        FontWeight="SemiBold"
                        Text="Inkoop">
             </TextBlock>
-            
-        </StackPanel>
 
-        <ScrollViewer x:Name="AllStockStackPanel" 
+        </StackPanel>
 
         <local:NavigationHeader x:Name="navigationHeader"/>
 
-        <ScrollViewer x:Name="allStockStackPanel" 
+        <ScrollViewer x:Name="AllStockStackPanel" 
                     Grid.Column="0" 
                     Grid.Row="1">
 
