@@ -46,10 +46,7 @@
     <ProjectCapability Include="Msix" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
-=======
-    <Page Update="Pages\NavigationHeader.xaml">
->>>>>>> 3f101b491d55bf802f3da85b90fefd947857afea
+    <Page Update="Pages\NavigationHeader.xaml" />
     <Page Update="Pages\EditProductPage.xaml">
       <Generator>MSBuild:Compile</Generator>
     </Page>

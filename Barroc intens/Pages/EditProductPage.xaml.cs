@@ -28,8 +28,6 @@ namespace Barroc_intens.Pages
         public EditProductPage()
         {
             this.InitializeComponent();
-
-            
         }
 
         protected override void OnNavigatedTo(NavigationEventArgs e)
@@ -57,7 +55,6 @@ namespace Barroc_intens.Pages
 
             }
         }
-
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
@@ -89,7 +86,7 @@ namespace Barroc_intens.Pages
                             installCost = 0;
                         }
                         product.InstallCost = installCost;
-                        if (PricePerKiloTb.Text.Length < 0)
+                        if (PricePerKiloTb.Text.Length < 1) //was 0 in merge conflict #85
                         {
                             pricePerKilo = 0;
                         }
@@ -107,8 +104,7 @@ namespace Barroc_intens.Pages
                         XamlRoot = this.Content.XamlRoot
                     };
 
-                    Frame.Navigate(typeof(PurchasingDashboardPage));
-
+                    Frame.Navigate(typeof(PurchasingDashboardPage)); //was weggehaald in merge conflict
                     await dialog.ShowAsync();
                 }
             }
@@ -117,7 +113,7 @@ namespace Barroc_intens.Pages
                 var dialog = new ContentDialog
                 {
                     Title = "Waarschuwing:",
-                    Content = "Een or meerdere velden is leeggelaten!",
+                    Content = "Een of meerdere velden is leeggelaten of verkeerd ingevuld!",
                     CloseButtonText = "Sluit",
                     XamlRoot = this.Content.XamlRoot
                 };

@@ -46,6 +46,9 @@ namespace Barroc_intens
             //products en category seeder
             var products = new List<Product>();
             var categories = new List<Category>();
+            var appointments = new List<Appointment>();
+            var customers = new List<Customer>();
+            var contactPerson = new List<CustomerContactPerson>();
 
             categories.AddRange([
             new Category { Id = 1, Name = "Automaten" },
@@ -330,6 +333,73 @@ namespace Barroc_intens
                 },
             ]);
 
+            appointments.AddRange([
+                 new Appointment
+                    {
+                        Id = 1,
+                        Date = DateTime.Now.AddDays(1),
+                        Duration = 60,
+                        Description = "Initial Consultation",
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        UserId = 1,
+                        Location = "Office 1"
+                    },
+                    new Appointment
+                    {
+                        Id = 2,
+                        Date = DateTime.Now.AddDays(2),
+                        Duration = 90,
+                        Description = "Follow-up",
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        UserId = 2,
+                        Location = "Office 2"
+                    },
+                     new Appointment
+                    {
+                        Id = 3,
+                        Date = DateTime.Now.AddDays(2),
+                        Duration = 100,
+                        Description = "Follow-up",
+                        CreatedAt = DateTime.Now,
+                        UpdatedAt = DateTime.Now,
+                        UserId = 3,
+                        Location = "Office 3"
+                    }
+                ]);
+
+            customers.AddRange([
+                new Customer
+                {
+                    Id = 1,
+                    CompanyName = "Tech Solutions Inc.",
+                    Address = "123 Tech Street, Innovation City",
+                    Description = "Leading provider of tech solutions."
+                },
+                new Customer
+                {
+                    Id = 2,
+                    CompanyName = "Green Energy Co.",
+                    Address = "456 Renewable Lane, EcoTown",
+                    Description = "Specializes in renewable energy projects."
+                }
+            ]);
+
+            contactPerson.AddRange([
+                new CustomerContactPerson
+                {
+                    Id = 1,
+                    CustomerId = 1
+                },
+                new CustomerContactPerson
+                {
+                    Id = 2,
+                    CustomerId = 1
+                }
+                ]);
+            ]);
+
             modelBuilder.Entity<Category>().HasData(categories);
             modelBuilder.Entity<Product>().HasData(products);
 
@@ -350,6 +420,11 @@ namespace Barroc_intens
             }
 
             modelBuilder.Entity<User>().HasData(users);
+            modelBuilder.Entity<Category>().HasData(categories);
+            modelBuilder.Entity<Product>().HasData(products);
+            modelBuilder.Entity<Appointment>().HasData(appointments);
+            modelBuilder.Entity<Customer>().HasData(customers);
+            modelBuilder.Entity<CustomerContactPerson>().HasData(contactPerson);
         }
     }
 }
