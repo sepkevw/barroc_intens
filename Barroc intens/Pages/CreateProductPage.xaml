@@ -91,7 +91,7 @@
                     Margin="5,5,10,5"
                     Content="O"/>
             <Button x:Name="cancelButton" 
-                    Click="cancelButton_Click"
+                    Click="CancelButton_Click"
                     Background="#FE6F5E"
                     Foreground="Black"
                     FontSize="18"
