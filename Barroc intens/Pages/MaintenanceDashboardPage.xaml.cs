@@ -127,8 +127,7 @@ namespace Barroc_intens.Pages
             {
                 Header = "Tijdsduur",
                 PlaceholderText = "Vul de tijdsduur in",
-                Margin = new Thickness(0, 10, 0, 0),
-                Width = 200
+                Margin = new Thickness(0, 10, 0, 0)
             };
 
             var assignedUserBox = new ComboBox

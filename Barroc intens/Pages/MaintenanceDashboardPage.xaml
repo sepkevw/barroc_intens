@@ -1,14 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Page
     x:Class="Barroc_intens.Pages.MaintenanceDashboardPage"
-      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:local="using:Barroc_intens.Models"
-      xmlns:pages="using:Barroc_intens.Pages"
-      mc:Ignorable="d"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:Barroc_intens.Models"
+    xmlns:pages="using:Barroc_intens.Pages"
+    mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    
+    <Page.Resources>
+        <!-- Define reusable styles -->
+        <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="0,20,0,1"/>
+            <Setter Property="Padding" Value="50,0,50,10"/>
+            <Setter Property="HorizontalAlignment" Value="Left"/>
+        </Style>
+
+        <Style x:Key="BoldTextStyle" TargetType="TextBlock">
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+
+        <!-- Style for ListViewItem -->
+        <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Padding" Value="12"/>
+            <Setter Property="Background" Value="#FFE390"/>
+            <Setter Property="CornerRadius" Value="15"/>
+        </Style>
+    </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
@@ -33,14 +55,8 @@
             </Grid.RowDefinitions>
 
             <TextBlock x:Name="DashboardListViewTitle"
-                       Grid.Column="0"
-                       Grid.Row="0"
-                       Margin="0, 20, 0, 1"
-                       FontSize="20"
-                       Padding="50, 0, 50, 10"
-                       HorizontalAlignment="Left">
-        Gepland onderhoud
-            </TextBlock>
+                       Style="{StaticResource HeaderTextStyle}"
+                       Text="Gepland onderhoud" />
 
             <Button x:Name="AddAppointmentButton"
                     Grid.Column="0"
@@ -52,9 +68,8 @@
                     Click="AddAppointmentButton_OnClick"/>
 
             <TextBox x:Name="FilterTextBox"
-                     Grid.Column="0"
                      Grid.Row="1"
-                     Margin="20, 10, 20, 10"
+                     Margin="20,10,20,10"
                      PlaceholderText="Type to filter by Name or Date..."
                      TextChanged="FilterTextBox_TextChanged" />
 
@@ -62,7 +77,8 @@
             <ListView x:Name="DashboardListView"
                       Grid.Column="0"
                       Grid.Row="2"
-                      Background="DimGray"
+                      Background="#FFEFB5"
+                      CornerRadius="15"
                       Margin="20, 10, 20, 20"
                       Padding="12"
                       IsItemClickEnabled="True"
@@ -86,32 +102,40 @@
                             <!-- Header Row -->
                             <TextBlock Text="Location"
                                        FontWeight="Bold"
+                                       Foreground="Black"
                                        Grid.Row="0"
                                        Grid.Column="0" />
                             <TextBlock Text="Date"
                                        FontWeight="Bold"
+                                       Foreground="Black"
                                        Grid.Row="0"
                                        Grid.Column="1" />
                             <TextBlock Text="Description"
                                        FontWeight="Bold"
+                                       Foreground="Black"
                                        Grid.Row="0"
                                        Grid.Column="2" />
                             <TextBlock Text="Duration"
                                        FontWeight="Bold"
+                                       Foreground="Black"
                                        Grid.Row="0"
                                        Grid.Column="3" />
 
                             <!-- Data Row -->
                             <TextBlock Text="{x:Bind Location}"
+                                       Foreground="Black"
                                        Grid.Row="1"
                                        Grid.Column="0" />
                             <TextBlock Text="{x:Bind Date}"
+                                       Foreground="Black"
                                        Grid.Row="1"
                                        Grid.Column="1" />
                             <TextBlock Text="{x:Bind Description}"
+                                       Foreground="Black"
                                        Grid.Row="1"
                                        Grid.Column="2" />
                             <TextBlock Text="{x:Bind Duration}"
+                                       Foreground="Black"
                                        Grid.Row="1"
                                        Grid.Column="3" />
                         </Grid>
@@ -124,61 +148,56 @@
               x:Name="AppointmentDetailView">
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
             
-                <TextBlock
-                           Grid.Column="0"
-                           Grid.Row="0"
-                           Margin="0, 20, 0, 1"
-                           FontSize="20"
-                           Padding="50, 0, 50, 10">
-                    Details afspraak
-                </TextBlock>
+            <TextBlock Grid.Row="0"
+                       Style="{StaticResource HeaderTextStyle}"
+                       Text="Details afspraak" />
 
             <!-- Details Panel -->
-            <StackPanel Grid.Row="1"
-                        Margin="50, 10, 50, 10"
-                        Orientation="Vertical">
+            <ScrollViewer Grid.Row="1"
+                          Margin="50, 10, 50, 10"
+                          VerticalScrollBarVisibility="Auto">
+                <StackPanel Orientation="Vertical">
+                    
+                    <TextBlock FontWeight="Bold"
+                               Text="Date:" />
+                    <TextBlock Text="{Binding Date}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Date:" />
-                <TextBlock Text="{Binding Date}"
-                           Margin="0,0,0,10" />
+                    <TextBlock FontWeight="Bold"
+                               Text="Duration (minutes):" />
+                    <TextBlock Text="{Binding Duration}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Duration (minutes):" />
-                <TextBlock Text="{Binding Duration}"
-                           Margin="0,0,0,10" />
+                    <TextBlock FontWeight="Bold"
+                               Text="Description:" />
+                    <TextBlock Text="{Binding Description}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Description:" />
-                <TextBlock Text="{Binding Description}"
-                           Margin="0,0,0,10" />
+                    <TextBlock FontWeight="Bold"
+                               Text="Created At:" />
+                    <TextBlock Text="{Binding CreatedAt}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Created At:" />
-                <TextBlock Text="{Binding CreatedAt}"
-                           Margin="0,0,0,10" />
+                    <TextBlock FontWeight="Bold"
+                               Text="Updated At:" />
+                    <TextBlock Text="{Binding UpdatedAt}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Updated At:" />
-                <TextBlock Text="{Binding UpdatedAt}"
-                           Margin="0,0,0,10" />
+                    <TextBlock FontWeight="Bold"
+                               Text="Assigned Employee:" />
+                    <TextBlock Text="{Binding User.Username}"
+                               Margin="0,0,0,10" />
 
-                <TextBlock FontWeight="Bold"
-                           Text="Assigned Employee:" />
-                <TextBlock Text="{Binding User.Username}"
-                           Margin="0,0,0,10" />
-
-                <TextBlock FontWeight="Bold"
-                           Text="Location:" />
-                <TextBlock Text="{Binding Location}"
-                           Margin="0,0,0,10" />
-
-            </StackPanel>
+                    <TextBlock FontWeight="Bold"
+                               Text="Location:" />
+                    <TextBlock Text="{Binding Location}"
+                               Margin="0,0,0,10" />
+                </StackPanel>
+            </ScrollViewer>
         </Grid>
     </Grid>
 </Page>
