@@ -2,6 +2,7 @@ using Barroc_intens.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
+using Microsoft.UI.Xaml.Data;
 using Microsoft.UI.Xaml.Navigation;
 using System;
 using System.Collections.Generic;
@@ -9,8 +10,14 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+// To learn more about WinUI, the WinUI project structure,
+// and more about our project templates, see: http://aka.ms/winui-project-info.
+
 namespace Barroc_intens.Pages
 {
+    /// <summary>
+    /// An empty page that can be used on its own or navigated to within a Frame.
+    /// </summary>
     public sealed partial class MaintenanceDashboardPage : Page
     {
         public MaintenanceDashboardPage()
@@ -23,9 +30,10 @@ namespace Barroc_intens.Pages
         {
             await LoadAppointments();
         }
-        protected override void OnNavigatedTo(NavigationEventArgs e)
+
+        private void ReturnButton_Click(object sender, RoutedEventArgs e)
         {
-            navigationHeader.ParentFrame = Frame;
+            Frame.Navigate(typeof(LoginPage));
         }
 
         private async Task LoadAppointments()

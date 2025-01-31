@@ -15,6 +15,38 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <local:NavigationHeader x:Name="navigationHeader" />
+
+        <StackPanel Grid.Row="0"
+                    Grid.Column="0"
+                    Grid.ColumnSpan="3"
+                    VerticalAlignment="Center"
+                    Padding="5"
+                    Orientation="Horizontal"
+                    Margin="8,5,8,5">
+
+            <!--<Button x:Name="ReturnButton"
+                    Click="ReturnButton_Click"
+                    Content="Terug">
+            </Button>-->
+
+            <TextBlock FontSize="28"
+                       Padding="10"
+                       VerticalAlignment="Center"
+                       FontWeight="SemiBold"
+                       Text="Inkoop">
+            </TextBlock>
+            
+        </StackPanel>
+
+        <ScrollViewer x:Name="AllStockStackPanel" 
+
         <local:NavigationHeader x:Name="navigationHeader"/>
 
         <ScrollViewer x:Name="allStockStackPanel" 
@@ -23,8 +55,8 @@
 
             <StackPanel Orientation="Vertical">
                 
-            
-            <TextBlock x:Name="dashboardListViewTitle"
+            <TextBlock x:Name="DashboardListViewTitle"
+
                        
                        Margin="0, 20, 0, 0" 
                        FontSize="20" 
@@ -33,11 +65,10 @@
                        HorizontalAlignment="Left">     
             </TextBlock>
 
-            <ListView x:Name="allStockListView" 
+            <ListView x:Name="AllStockListView" 
                           IsItemClickEnabled="True"
-                          ItemClick="allStockListView_ItemClick"
-                          Margin="20, 10, 20, 20"
-                          >
+                          ItemClick="AllStockListView_ItemClick"
+                          Margin="20, 10, 20, 20">
                 <ListView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Height="75"
@@ -64,7 +95,7 @@
         <StackPanel Grid.Row="1"
             Grid.Column="1">
 
-            <TextBlock x:Name="dashboardGridViewTitle"
+            <TextBlock x:Name="DashboardGridViewTitle"
                 Grid.Row="1" 
                 Margin="0, 20, 0, 0" 
                 FontSize="20" 
@@ -74,11 +105,11 @@
             </TextBlock>
 
             <Grid>
-                <GridView x:Name="lowStockGridView"
+                <GridView x:Name="LowStockGridView"
                         IsItemClickEnabled="True"
-                        ItemClick="lowStockGridView_ItemClick"
+                        ItemClick="LowStockGridView_ItemClick"
                         Margin="20, 5, 20, 20"
-                        MaxHeight="{Binding ActualHeight, ElementName=allStockStackPanel}">
+                        MaxHeight="{Binding ActualHeight, ElementName=AllStockStackPanel}">
                     <GridView.ItemTemplate>
                         <DataTemplate x:DataType="localdata:Product">
                             <StackPanel Background="Black"
@@ -105,7 +136,7 @@
 
         <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
 
-            <Button x:Name="deleteItemButton" 
+            <Button x:Name="DeleteItemButton" 
                 Click="deleteItemButton_Click"           
                 Content="X"
                 Background="#FE6F5E"
@@ -119,7 +150,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2EditViewButton" 
+            <Button x:Name="Go2EditViewButton" 
                 Click="go2EditViewButton_Click"     
                 Content="E"
                 Background="white"
@@ -133,7 +164,7 @@
                 HorizontalAlignment="Center"
                 Visibility="Collapsed"/>
 
-            <Button x:Name="go2CreateViewButton" 
+            <Button x:Name="Go2CreateViewButton" 
                 Click="go2CreateViewButton_Click" 
                 VerticalAlignment="Center"
                 HorizontalAlignment="Center"

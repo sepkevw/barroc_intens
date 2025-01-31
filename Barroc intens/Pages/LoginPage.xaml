@@ -9,11 +9,8 @@
       Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <StackPanel Width="600" VerticalAlignment="Center">
-        <TextBox x:Name="UsernameInput" PlaceholderText="Username" Padding="20" Margin="20"/>
-        <TextBox x:Name ="PasswordInput" PlaceholderText="Password" Padding="20" Margin="20"/>
-
-        <Button x:Name="LoginButton" Click="LoginButton_Click" Padding="20" Margin="20" Content="Login" Width="100"/>
-        <TextBlock x:Name="ErrorMessage" Padding="20" Margin="20" Foreground="Red"/>
+        <TextBox PlaceholderText="Username" Padding="20" Margin="20"/>
+        <TextBox PlaceholderText="Password" Padding="20" Margin="20"/>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
             <Button x:Name="FinanceButton" Click="FinanceButton_Click" Margin="20">Financiën</Button>
             <Button x:Name="MaintenanceButton" Click="MaintenanceButton_Click" Margin="20">Onderhoud</Button>
