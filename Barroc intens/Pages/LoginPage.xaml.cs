@@ -44,21 +44,21 @@ namespace Barroc_intens.Pages
 
 
             Frame.Navigate(typeof(SalesDashboardPage));
-            DisplayDialog("hoihoi", "Welcome");
+            //DisplayDialog("hoihoi", "Welcome");
         }
 
-        private async void DisplayDialog(string message, string title)
-        {
-            ContentDialog noWifiDialog = new ContentDialog()
-            {
-                XamlRoot = this.XamlRoot,
-                Title = title,
-                Content = message,
-                CloseButtonText = "Ok"
-            };
+        //private async void DisplayDialog(string message, string title)
+        //{
+        //    ContentDialog noWifiDialog = new ContentDialog()
+        //    {
+        //        XamlRoot = this.XamlRoot,
+        //        Title = title,
+        //        Content = message,
+        //        CloseButtonText = "Ok"
+        //    };
 
-            await noWifiDialog.ShowAsync();
-        }
+        //    await noWifiDialog.ShowAsync();
+        //}
 
         private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {

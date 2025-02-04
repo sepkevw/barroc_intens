@@ -46,7 +46,6 @@ namespace Barroc_intens.Pages
 
         private void LoadTabs(int roleId)
         {
-            // Define which roles can access which pages
             List<TabViewItem> availableTabs = new List<TabViewItem>();
 
             switch (roleId)
@@ -109,7 +108,6 @@ namespace Barroc_intens.Pages
                     break;
             }
 
-            // Add the filtered tabs to the TabView
             foreach (var tab in availableTabs)
             {
                 MainTabView.TabItems.Add(tab);

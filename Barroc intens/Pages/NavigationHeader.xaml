@@ -15,12 +15,12 @@
             <ColumnDefinition Width="auto"/>
         </Grid.ColumnDefinitions>
 
-        <Button x:Name="BackButton"
+        <!--<Button x:Name="BackButton"
         Click="BackButton_Click"
         Style="{StaticResource NavigationBackButtonNormalStyle}"
         IsEnabled="{x:Bind ParentFrame.CanGoBack, Mode=OneWay}" 
         ToolTipService.ToolTip="Back"
-        Grid.Column="0"/>
+        Grid.Column="0"/>-->
 
         <Button x:Name="LogoutButton"
         Click="LogoutButton_Click"

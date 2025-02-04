@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Barroc_intens.Pages;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -23,7 +24,7 @@ namespace Barroc_intens
 {
     public partial class App : Application
     {
-        public static Window MainWindow { get; private set; }
+        public static Frame MainRootFrame { get; private set; }
         public App()
         {
             this.InitializeComponent();
@@ -31,21 +32,14 @@ namespace Barroc_intens
 
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
-            MainWindow = m_window;
-            m_window.Activate();
-        }
+            var window = new MainWindow();
+            var rootFrame = new Frame();
 
-        private Window m_window;
+            window.Content = rootFrame;
+            MainRootFrame = rootFrame; // Store the root frame reference
+            rootFrame.Navigate(typeof(LoginPage));
 
-        public static bool TryGoBack()
-        {
-            if (MainWindow.Content is Frame rootFrame && rootFrame.CanGoBack)
-            {
-                rootFrame.GoBack();
-                return true;
-            }
-            return false;
+            window.Activate();
         }
     }
 }
