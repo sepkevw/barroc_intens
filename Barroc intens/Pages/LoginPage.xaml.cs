@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -44,7 +46,8 @@ namespace Barroc_intens.Pages
             Frame.Navigate(typeof(SalesDashboardPage));
             DisplayDialog("hoihoi", "Welcome");
         }
-        private async void DisplayDialog( string message, string title)
+
+        private async void DisplayDialog(string message, string title)
         {
             ContentDialog noWifiDialog = new ContentDialog()
             {
@@ -57,50 +60,33 @@ namespace Barroc_intens.Pages
             await noWifiDialog.ShowAsync();
         }
 
-        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            using var conn = new AppDbContext();
+            var conn = new AppDbContext();
             var dbUser = conn.Users.FirstOrDefault(u => u.Username == UsernameInput.Text);
 
-            
-            if(dbUser == null)
+
+            if (dbUser == null)
             {
                 ErrorMessage.Text = "Password or Username is wrong.";
-            } else
+            }
+            else
             {
                 var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
-                if(verifyLogin)
+                if (verifyLogin)
                 {
-                    switch (dbUser.RoleId)
-                    {
-                        case 7:
-                        case 8:
-                            //inkoop / purchasing dept.
-                            Frame.Navigate(typeof(PurchasingDashboardPage));
-                            break;
-                        case 3:
-                        case 4:
-                            //financien / finance 
-                            Frame.Navigate(typeof(FinanceDashboardPage));
-                            break;
-                        case 10:
-                        case 11:
-                        case 12:
-                            //onderhoud / maintenance
-                            Frame.Navigate(typeof(MaintenanceDashboardPage));
-                            break;
-                        case 5:
-                        case 6:
-                            //verkoop / sales
-                            Frame.Navigate(typeof(SalesDashboardPage));
-                            break;
-                        default:
-                            Frame.Navigate(typeof(LoginPage));
-                            break;
-                    }
-                } else
-                {
-                    ErrorMessage.Text = "Password or Username is wrong.";
+                    dbUser.RememberToken = User.GenerateRememberToken();
+
+                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile cookieFile = await storageFolder.CreateFileAsync(
+                        "remember_token.txt",
+                        CreationCollisionOption.ReplaceExisting);
+                    await FileIO.WriteTextAsync(cookieFile, dbUser.RememberToken);
+                    conn.SaveChanges();
+
+                    User.LoggedInUser = dbUser;
+
+                    Frame.Navigate(typeof(NavigationTabPage));
                 }
             }
         }
