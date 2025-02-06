@@ -72,7 +72,7 @@ namespace Barroc_intens.Pages
             }
             else
             {
-                var verifyLogin = SecureHasher.Verify(PasswordInput.Text, dbUser.Password);
+                var verifyLogin = SecureHasher.Verify(PasswordInput.Password, dbUser.Password);
                 if (verifyLogin)
                 {
                     dbUser.RememberToken = User.GenerateRememberToken();
