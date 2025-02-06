@@ -88,17 +88,23 @@
                     FontSize="18"
                     Height="45"
                     Width="45"    
-                    Margin="5,5,10,5"
-                    Content="O"/>
+                    Margin="5,5,10,5">
+                <Button.Content>
+                    <SymbolIcon Symbol="Save"/>
+                </Button.Content>
+            </Button>
             <Button x:Name="cancelButton" 
-                    Click="cancelButton_Click"
+                    Click="CancelButton_Click"
                     Background="#FE6F5E"
                     Foreground="Black"
                     FontSize="18"
                     Height="45"
                     Width="45"    
-                    Margin="5,5,10,10"
-                    Content="A"/>
+                    Margin="5,5,10,10">
+                <Button.Content>
+                    <SymbolIcon Symbol="Cancel"/>
+                </Button.Content>
+            </Button>
         </StackPanel>
 
     </Grid>

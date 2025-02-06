@@ -17,7 +17,8 @@ using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Database;
 
 namespace Barroc_intens.Pages
 {
-    /// <summary>
+    
+/// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
     public sealed partial class PurchasingDashboardPage : Page

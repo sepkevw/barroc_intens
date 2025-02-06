@@ -31,8 +31,8 @@ namespace Barroc_intens
             using var connection = new AppDbContext();
             connection.Database.EnsureDeleted();
             connection.Database.EnsureCreated();
-<<<<<<< HEAD
-              
+             
+            
             int RandomId = new Random().Next(1, 25);
             using(var db = new AppDbContext())  
             {
@@ -48,15 +48,5 @@ namespace Barroc_intens
                 this.contentFrame.Navigate(typeof(LoginPage));
             }
         }
-
-        private void ReturnButton_Click(object sender, RoutedEventArgs e)
-        {
-
-=======
-            
-            contentFrame.Navigate(typeof(LoginPage));
->>>>>>> 3f101b491d55bf802f3da85b90fefd947857afea
-        }
-
     }
 }
