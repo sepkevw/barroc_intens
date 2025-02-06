@@ -46,8 +46,8 @@ public static class SecureHasher
     /// <returns>The hash.</returns>
     public static string Hash(string password, int iterations = 10000)
     {
-        byte[] salt = RandomNumberGenerator.GetBytes(saltSize);
-        byte[] hash = Rfc2898DeriveBytes.Pbkdf2(
+        var salt = RandomNumberGenerator.GetBytes(saltSize);
+        var hash = Rfc2898DeriveBytes.Pbkdf2(
             password,
             salt,
             iterations,
@@ -75,16 +75,16 @@ public static class SecureHasher
     public static bool Verify(string inputPassword, string hashedPassword)
     {
         // Split to get the hash, salt, iterations and algorithm.
-        string[] segments = hashedPassword.Split(segmentDelimiter);
+        var segments = hashedPassword.Split(segmentDelimiter);
 
-        byte[] hash = Convert.FromBase64String(segments[0]);
-        byte[] salt = Convert.FromBase64String(segments[1]);
-        int iterations = int.Parse(segments[2]);
-        HashAlgorithmName algorithm = new HashAlgorithmName(segments[3]);
+        var hash = Convert.FromBase64String(segments[0]);
+        var salt = Convert.FromBase64String(segments[1]);
+        var iterations = int.Parse(segments[2]);
+        var algorithm = new HashAlgorithmName(segments[3]);
 
         // Hash the password with the same salt, iterations and algorithm.
         // We compare that to the existing hashed password. If they match, the password is correct.
-        byte[] inputHash = Rfc2898DeriveBytes.Pbkdf2(
+        var inputHash = Rfc2898DeriveBytes.Pbkdf2(
             inputPassword,
             salt,
             iterations,

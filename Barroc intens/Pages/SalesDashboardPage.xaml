@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Barroc_intens.Pages.SalesDashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -11,28 +12,28 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" Padding="5" Orientation="Horizontal">
-            <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
-            <TextBlock FontSize="20" Padding="10" VerticalAlignment="Center" FontWeight="SemiBold">Verkoop</TextBlock>
-        </StackPanel>
+        <local:NavigationHeader x:Name="navigationHeader" />
 
         <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
             </Grid.RowDefinitions>
 
-            <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 10">Klanten</TextBlock>
+            <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20"
+                       Padding="50, 0, 50, 10">
+                Klanten
+            </TextBlock>
             <ListView x:Name="dashboardListView" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="20, 10, 20, 20">
                 <!--<ListView.ItemTemplate>
                     <DataTemplate x:DataType="localdata:User">
@@ -43,89 +44,90 @@
                 </ListView.ItemTemplate>-->
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Curio"/>
+                        <TextBlock Padding="5" Text="Curio" />
                         <!--bedrijf-->
-                        <TextBlock Padding="5" Text="Laatst contact: 20-10"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 1-12-2024"/>
+                        <TextBlock Padding="5" Text="Laatst contact: 20-10" />
+                        <TextBlock Padding="5" Text="Contract Tot: 1-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="ABC Corp"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 15-11"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 15-12-2024"/>
+                        <TextBlock Padding="5" Text="ABC Corp" />
+                        <TextBlock Padding="5" Text="Laatst contact: 15-11" />
+                        <TextBlock Padding="5" Text="Contract Tot: 15-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Tech Solutions"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 01-11"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024"/>
+                        <TextBlock Padding="5" Text="Tech Solutions" />
+                        <TextBlock Padding="5" Text="Laatst contact: 01-11" />
+                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Green Energy"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 25-10"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 28-11-2024"/>
+                        <TextBlock Padding="5" Text="Green Energy" />
+                        <TextBlock Padding="5" Text="Laatst contact: 25-10" />
+                        <TextBlock Padding="5" Text="Contract Tot: 28-11-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Innovatech"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 18-09"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 20-10-2024"/>
+                        <TextBlock Padding="5" Text="Innovatech" />
+                        <TextBlock Padding="5" Text="Laatst contact: 18-09" />
+                        <TextBlock Padding="5" Text="Contract Tot: 20-10-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Smart Systems"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 03-10"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 25-11-2024"/>
+                        <TextBlock Padding="5" Text="Smart Systems" />
+                        <TextBlock Padding="5" Text="Laatst contact: 03-10" />
+                        <TextBlock Padding="5" Text="Contract Tot: 25-11-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="FutureWorks"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 07-11"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024"/>
+                        <TextBlock Padding="5" Text="FutureWorks" />
+                        <TextBlock Padding="5" Text="Laatst contact: 07-11" />
+                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Eco Partners"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 21-10"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 10-12-2024"/>
+                        <TextBlock Padding="5" Text="Eco Partners" />
+                        <TextBlock Padding="5" Text="Laatst contact: 21-10" />
+                        <TextBlock Padding="5" Text="Contract Tot: 10-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="TechWorks"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 12-10"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024"/>
+                        <TextBlock Padding="5" Text="TechWorks" />
+                        <TextBlock Padding="5" Text="Laatst contact: 12-10" />
+                        <TextBlock Padding="5" Text="Contract Tot: 31-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
                 <ListViewItem>
                     <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Quantum Innovations"/>
-                        <TextBlock Padding="5" Text="Laatst contact: 05-11"/>
-                        <TextBlock Padding="5" Text="Contract Tot: 05-12-2024"/>
+                        <TextBlock Padding="5" Text="Quantum Innovations" />
+                        <TextBlock Padding="5" Text="Laatst contact: 05-11" />
+                        <TextBlock Padding="5" Text="Contract Tot: 05-12-2024" />
                     </StackPanel>
                 </ListViewItem>
 
             </ListView>
 
             <!--<TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20" Padding="50, 0, 50, 10">GridView Title</TextBlock>-->
-            <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20" HorizontalAlignment="Center">
+            <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20"
+                      HorizontalAlignment="Center">
                 <!--<GridView.ItemTemplate>
                     <DataTemplate x:DataType="localdata:User">
                         <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
@@ -135,13 +137,15 @@
                 </GridView.ItemTemplate>-->
                 <GridView.ItemsPanel>
                     <ItemsPanelTemplate>
-                        <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal"/>
+                        <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" />
                     </ItemsPanelTemplate>
                 </GridView.ItemsPanel>
             </GridView>
-            <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20" Orientation="Horizontal">
+            <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20"
+                        Orientation="Horizontal">
                 <!--<Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>-->
-                <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0"  Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>
+                <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0"
+                        Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25" />
             </StackPanel>
         </Grid>
     </Grid>

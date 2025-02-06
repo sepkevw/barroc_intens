@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Barroc_intens.Pages.MaintenanceDashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
@@ -9,33 +10,23 @@
     xmlns:pages="using:Barroc_intens.Pages"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-    
+
     <Page.Resources>
         <!-- Define reusable styles -->
         <Style x:Key="HeaderTextStyle" TargetType="TextBlock">
-            <Setter Property="FontSize" Value="20"/>
-            <Setter Property="Margin" Value="0,20,0,1"/>
-            <Setter Property="Padding" Value="50,0,50,10"/>
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-        </Style>
-
-        <Style x:Key="BoldTextStyle" TargetType="TextBlock">
-            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Margin" Value="0,20,0,1" />
+            <Setter Property="Padding" Value="50,0,50,10" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
         </Style>
 
         <!-- Style for ListViewItem -->
-        <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="Padding" Value="12"/>
-            <Setter Property="Background" Value="#FFE390"/>
-            <Setter Property="CornerRadius" Value="15"/>
-        </Style>
     </Page.Resources>
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -43,7 +34,7 @@
             <ColumnDefinition Width="2*" />
         </Grid.ColumnDefinitions>
 
-        <pages:NavigationHeader x:Name="navigationHeader"/>
+        <pages:NavigationHeader x:Name="navigationHeader" />
 
         <Grid Grid.Row="1"
               Grid.Column="0">
@@ -65,7 +56,7 @@
                     Content="+"
                     FontWeight="ExtraBold"
                     FontSize="25"
-                    Click="AddAppointmentButton_OnClick"/>
+                    Click="AddAppointmentButton_OnClick" />
 
             <TextBox x:Name="FilterTextBox"
                      Grid.Row="1"
@@ -152,7 +143,7 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="4*" />
             </Grid.RowDefinitions>
-            
+
             <TextBlock Grid.Row="0"
                        Style="{StaticResource HeaderTextStyle}"
                        Text="Details afspraak" />
@@ -162,7 +153,7 @@
                           Margin="50, 10, 50, 10"
                           VerticalScrollBarVisibility="Auto">
                 <StackPanel Orientation="Vertical">
-                    
+
                     <TextBlock FontWeight="Bold"
                                Text="Date:" />
                     <TextBlock Text="{Binding Date}"

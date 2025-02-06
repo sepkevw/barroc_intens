@@ -1,181 +1,240 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Barroc_intens.Pages.PurchasingDashboardPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Barroc_intens.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:localdata="using:Barroc_intens.Models"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="Auto"/>
-        </Grid.ColumnDefinitions>
 
         <local:NavigationHeader x:Name="navigationHeader" />
 
-        <StackPanel Grid.Row="0"
-                    Grid.Column="0"
-                    Grid.ColumnSpan="3"
-                    VerticalAlignment="Center"
-                    Padding="5"
-                    Orientation="Horizontal"
-                    Margin="8,5,8,5">
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
 
-            <!--<Button x:Name="ReturnButton"
-                    Click="ReturnButton_Click"
-                    Content="Terug">
-            </Button>-->
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="80" />
+            </Grid.RowDefinitions>
 
-            <TextBlock FontSize="28"
-                       Padding="10"
-                       VerticalAlignment="Center"
-                       FontWeight="SemiBold"
-                       Text="Inkoop">
+            <TextBlock x:Name="dashboardListViewTitle" Grid.Column="0" Grid.Row="0" Margin="0, 20, 0, 0" FontSize="20"
+                       Padding="50, 0, 50, 10">
+                Binnekomende leveringen
             </TextBlock>
-            
-        </StackPanel>
+            <ListView x:Name="dashboardListView" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="20, 10, 20, 20">
+                <!--<ListView.ItemTemplate>
+                    <DataTemplate x:DataType="localdata:User">
+                        <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                            <TextBlock Text="{x:Bind Username}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>-->
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Elektrische pomp" />
+                        <!--product-->
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="14-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Rubber (10 mm) (100)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="16-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Ontkalker (50)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="19-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Slang (80)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="22-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 13.00 en 16.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Voeding (elektra) (5)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="24-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Waterfilter (2)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="27-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Reservoir sensor (5)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="29-11" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Druppelstop (10)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="02-12" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 14.00 en 17.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Elektrische pomp (3)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="05-12" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Tandwiel 110mm (40)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="08-12" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
+                    </StackPanel>
+                </ListViewItem>
+                <ListViewItem>
+                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
+                        <TextBlock Padding="5" Text="Zeef (25)" />
+                        <TextBlock Padding="5" Text="Leverings datum:" />
+                        <TextBlock Padding="5" Text="11-12" />
+                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
+                    </StackPanel>
+                </ListViewItem>
+            </ListView>
 
-        <ScrollViewer x:Name="AllStockStackPanel" 
-
-        <local:NavigationHeader x:Name="navigationHeader"/>
-
-        <ScrollViewer x:Name="allStockStackPanel" 
-                    Grid.Column="0" 
-                    Grid.Row="1">
-
-            <StackPanel Orientation="Vertical">
-                
-            <TextBlock x:Name="DashboardListViewTitle"
-
-                       
-                       Margin="0, 20, 0, 0" 
-                       FontSize="20" 
-                       Padding="50, 0, 50, 10"
-                       Text="Alle Producten"
-                       HorizontalAlignment="Left">     
+            <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20"
+                       Padding="50, 0, 50, 10">
+                Lage voorraad
             </TextBlock>
+            <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20"
+                      HorizontalAlignment="Center">
+                <!--<GridView.ItemTemplate>
+                    <DataTemplate x:DataType="localdata:User">
+                        <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                            <TextBlock Text="{x:Bind Username}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </GridView.ItemTemplate>-->
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="DE Décaffé" />
+                        <!--product-->
+                        <TextBlock Padding="5" Text="Hoeveelheid: 20" />
+                    </StackPanel>
+                </GridViewItem>
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Rubber (10 mm)" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 50" />
+                    </StackPanel>
+                </GridViewItem>
 
-            <ListView x:Name="AllStockListView" 
-                          IsItemClickEnabled="True"
-                          ItemClick="AllStockListView_ItemClick"
-                          Margin="20, 10, 20, 20">
-                <ListView.ItemTemplate>
-                        <DataTemplate x:DataType="localdata:Product">
-                            <StackPanel Height="75"
-                                Background="#FACA16"
-                                Margin="0, 0, 0, 8">
-                                <StackPanel Orientation="Horizontal" 
-                                            MaxWidth="300" HorizontalAlignment="Left">
-                                    <TextBlock Text="{x:Bind Name}" 
-                                               Foreground="Black"
-                                               FontWeight="Bold"
-                                               Margin="5,5,5,15"
-                                               TextWrapping="Wrap"/>
-                                    <TextBlock Text="{x:Bind UnitsInStock}"
-                                               Foreground="Black"
-                                               Margin="5,5,5,5 "/>
-                                </StackPanel>
-                            </StackPanel>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Rubber (14 mm)" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 30" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Slang" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 3" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Voeding (elektra)" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 1" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Ontkalker" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 10" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Waterfilter" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 2" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Reservoir sensor" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 1" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Druppelstop" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 5" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Elektrische pomp" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 1" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridViewItem>
+                    <StackPanel MinHeight="100" MinWidth="100" Background="DimGray" Margin="5, 0, 5, 10">
+                        <TextBlock Padding="5" Text="Tandwiel 110mm" />
+                        <TextBlock Padding="5" Text="Hoeveelheid: 8" />
+                    </StackPanel>
+                </GridViewItem>
+
+                <GridView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <ItemsWrapGrid MaximumRowsOrColumns="3" Orientation="Horizontal" />
+                    </ItemsPanelTemplate>
+                </GridView.ItemsPanel>
+            </GridView>
+            <StackPanel Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" Margin="0, 0, 120, 20"
+                        Orientation="Horizontal">
+                <!--<Button x:Name="dashboardBackButton" Background="Red" Width="50" Height="50" Content="x" Foreground="Black" FontWeight="ExtraBold" FontSize="25"/>-->
+                <Button x:Name="dashboardForwardButton" Background="Yellow" Width="50" Height="50" Margin="20, 0, 0, 0"
+                        Content="+" Foreground="Black" FontWeight="ExtraBold" FontSize="25" />
             </StackPanel>
-        </ScrollViewer>
-
-        <StackPanel Grid.Row="1"
-            Grid.Column="1">
-
-            <TextBlock x:Name="DashboardGridViewTitle"
-                Grid.Row="1" 
-                Margin="0, 20, 0, 0" 
-                FontSize="20" 
-                Padding="50, 0, 50, 10"
-                Text="Lage voorraad"
-                HorizontalAlignment="Left">
-            </TextBlock>
-
-            <Grid>
-                <GridView x:Name="LowStockGridView"
-                        IsItemClickEnabled="True"
-                        ItemClick="LowStockGridView_ItemClick"
-                        Margin="20, 5, 20, 20"
-                        MaxHeight="{Binding ActualHeight, ElementName=AllStockStackPanel}">
-                    <GridView.ItemTemplate>
-                        <DataTemplate x:DataType="localdata:Product">
-                            <StackPanel Background="Black"
-                               Margin="2"
-                               Height="150"
-                               Width="150">
-                                <TextBlock Text="{x:Bind Name}" 
-                                   Foreground="White"
-                                   FontWeight="SemiBold"
-                                   FontSize="15"
-                                   TextWrapping="Wrap"
-                                   Margin="9,7,9,3"/>
-                                <TextBlock Text="{x:Bind UnitsInStock}"
-                                   Foreground="#FACA16"
-                                   FontSize="40"
-                                   FontWeight="ExtraBlack"
-                                   Margin="6,0,0,0"/>
-                            </StackPanel>
-                        </DataTemplate>
-                    </GridView.ItemTemplate>
-                </GridView>
-            </Grid>
-        </StackPanel>
-
-        <StackPanel Grid.Column="2" Grid.Row="0" Grid.RowSpan="3" Orientation="Vertical" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-
-            <Button x:Name="DeleteItemButton" 
-                Click="deleteItemButton_Click"           
-                Content="X"
-                Background="#FE6F5E"
-                Foreground="Black"
-                FontSize="18"
-                FontWeight="ExtraBold"
-                Height="45"
-                Width="45"
-                Margin="5,5,10,5"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Visibility="Collapsed"/>
-
-            <Button x:Name="Go2EditViewButton" 
-                Click="go2EditViewButton_Click"     
-                Content="E"
-                Background="white"
-                Foreground="Black"
-                FontSize="18"
-                FontWeight="ExtraBold"
-                Height="45"
-                Width="45"    
-                Margin="5,5,10,5"
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Visibility="Collapsed"/>
-
-            <Button x:Name="Go2CreateViewButton" 
-                Click="go2CreateViewButton_Click" 
-                VerticalAlignment="Center"
-                HorizontalAlignment="Center"
-                Content="+"             
-                Background="#FACA16"
-                Foreground="Black"
-                FontSize="30"
-                FontWeight="ExtraBold"
-                Height="45"
-                Width="45"
-                Margin="5,5,10,10"/>
-        </StackPanel>
+        </Grid>
     </Grid>
 </Page>

@@ -5,58 +5,53 @@ using System.Security.Cryptography;
 using System.Threading.Tasks;
 using Windows.Storage;
 
-namespace Barroc_intens.Models
+namespace Barroc_intens.Models;
+
+internal class User
 {
-    internal class User
+    public static User LoggedInUser { get; set; }
+
+    public int Id { get; set; }
+    public string Username { get; set; }
+    public string Password { get; set; }
+    public int RoleId { get; set; }
+    public DateTime Created_at { get; set; }
+    public Role Role { get; set; }
+
+    public string RememberToken { get; set; }
+
+    public static string GenerateRememberToken()
     {
-        public static User LoggedInUser { get; set; }
+        var characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+        var length = 10;
+        var randomChars = new char[length];
 
-        public int Id { get; set; }
-        public string Username { get; set; }
-        public int RoleId { get; set; }
-        public DateTime Created_at { get; set; }
-        public Role Role { get; set; }
+        for (var i = 0; i < length; i++)
+            randomChars[i] = characters[RandomNumberGenerator.GetInt32(0, characters.Length)];
 
-        public string RememberToken { get; set; }
+        return new string(randomChars);
+    }
 
-        public static String GenerateRememberToken()
+    public static async Task<bool> TryLoadUser()
+    {
+        using var connection = new AppDbContext();
+
+        var storageFolder = ApplicationData.Current.LocalFolder;
+
+        try
         {
-            string characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-            int length = 10;
-            char[] randomChars = new char[length];
+            var cookieFile = await storageFolder.GetFileAsync("remember_token.txt");
+            var rememberToken = await FileIO.ReadTextAsync(cookieFile);
 
-            for (int i = 0; i < length; i++)
-            {
-                randomChars[i] = characters[RandomNumberGenerator.GetInt32(0, characters.Length)];
-            }
+            var user = connection.Users.FirstOrDefault(u => u.RememberToken == rememberToken);
 
-            return new string(randomChars);
+            if (user != null) return true;
+
+            return false;
         }
-
-        public static async Task<bool> TryLoadUser()
+        catch (FileNotFoundException)
         {
-            using var connection = new AppDbContext();
-
-            StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
-
-            try
-            {
-                var cookieFile = await storageFolder.GetFileAsync("remember_token.txt");
-                string rememberToken = await FileIO.ReadTextAsync(cookieFile);
-
-                User user = connection.Users.FirstOrDefault(u => u.RememberToken == rememberToken);
-
-                if (user != null)
-                {
-                    return true;
-                }
-
-                return false;
-            }
-            catch (FileNotFoundException)
-            {
-                return false;
-            }
+            return false;
         }
     }
 }

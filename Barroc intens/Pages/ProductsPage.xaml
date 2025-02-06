@@ -1,31 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <Page
     x:Class="Barroc_intens.Pages.ProductsPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:Barroc_intens.Pages"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:local1="using:Barroc_intens.Models"
-      mc:Ignorable="d"
+    mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="2*"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="2*" />
+            <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
         <ListView x:Name="ProductsListView">
             <ListView.ItemTemplate>
                 <DataTemplate x:DataType="local1:Product">
                     <StackPanel>
-                        <TextBlock Text="{Binding Id}" Visibility="Collapsed"/>
-                        <TextBlock Text="{Binding name}"/>
-                        <TextBlock Text="{Binding ProductNumber}"/>
-                        <TextBlock Text="{Binding LeaseCost}"/>
-                        <TextBlock Text="{Binding InstallCost}"/>
-                        <TextBlock Text="{Binding PricePerKilo}"/>
-                        <TextBlock Text="{Binding CategoryId}"/>
+                        <TextBlock Text="{Binding Id}" Visibility="Collapsed" />
+                        <TextBlock Text="{Binding name}" />
+                        <TextBlock Text="{Binding ProductNumber}" />
+                        <TextBlock Text="{Binding LeaseCost}" />
+                        <TextBlock Text="{Binding InstallCost}" />
+                        <TextBlock Text="{Binding PricePerKilo}" />
+                        <TextBlock Text="{Binding CategoryId}" />
                     </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>

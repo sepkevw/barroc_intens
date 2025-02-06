@@ -14,23 +14,23 @@ using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Barroc_intens.Models;
 
-namespace Barroc_intens.Pages
-{
-    public sealed partial class NavigationHeader : UserControl
-    {
-        public Frame ParentFrame { get; set; }
-        public NavigationHeader()
-        {
-            this.InitializeComponent();
-        }
+namespace Barroc_intens.Pages;
 
-        private void LogoutButton_Click(object sender, RoutedEventArgs e)
+public sealed partial class NavigationHeader : UserControl
+{
+    public Frame ParentFrame { get; set; }
+
+    public NavigationHeader()
+    {
+        InitializeComponent();
+    }
+
+    private void LogoutButton_Click(object sender, RoutedEventArgs e)
+    {
+        if (App.MainRootFrame != null)
         {
-            if (App.MainRootFrame != null)
-            {
-                App.MainRootFrame.Navigate(typeof(LoginPage));
-                User.LoggedInUser = null;
-            }
+            App.MainRootFrame.Navigate(typeof(LoginPage));
+            User.LoggedInUser = null;
         }
     }
 }

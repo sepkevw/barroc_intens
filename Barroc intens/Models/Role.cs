@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Barroc_intens.Models
+namespace Barroc_intens.Models;
+
+internal class Role
 {
-    internal class Role
-    {
-        public int Id { get; set; }
-        public string RoleName { get; set; }
-    }
+    public int Id { get; set; }
+    public string RoleName { get; set; }
 }

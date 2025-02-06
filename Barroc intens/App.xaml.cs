@@ -20,34 +20,26 @@ using Windows.Foundation.Collections;
 // To learn more about WinUI, the WinUI project structure,
 // and more about our project templates, see: http://aka.ms/winui-project-info.
 
-namespace Barroc_intens
+namespace Barroc_intens;
+
+public partial class App : Application
 {
-    /// <summary>
-    /// Provides application-specific behavior to supplement the default Application class.
-    /// </summary>
-    public partial class App : Application
+    public static Frame MainRootFrame { get; private set; }
+
+    public App()
     {
-        public static Frame MainRootFrame { get; private set; }
+        InitializeComponent();
+    }
 
-        public App()
-        {
-            this.InitializeComponent();
-        }
+    protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
+    {
+        var window = new MainWindow();
+        var rootFrame = new Frame();
 
-        /// <summary>
-        /// Invoked when the application is launched.
-        /// </summary>
-        /// <param name="args">Details about the launch request and process.</param>
-        protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
-        {
-            var window = new MainWindow();
-            var rootFrame = new Frame();
+        window.Content = rootFrame;
+        MainRootFrame = rootFrame; // Store the root frame reference
+        rootFrame.Navigate(typeof(LoginPage));
 
-            window.Content = rootFrame;
-            MainRootFrame = rootFrame; // Store the root frame reference
-            rootFrame.Navigate(typeof(LoginPage));
-
-            window.Activate();
-        }
+        window.Activate();
     }
 }

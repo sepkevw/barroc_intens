@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Barroc_intens.Models
+namespace Barroc_intens.Models;
+
+internal class CustomerContactPerson
 {
-    internal class CustomerContactPerson
-    {
-        public int Id { get;set; }
-        public string Name { get; set; }
-        public string Email { get; set; }
-        public int CustomerId { get; set; }
-        public Customer Customer { get; set; }
-    }
+    public int Id { get; set; }
+    public string Name { get; set; }
+    public string Email { get; set; }
+    public int CustomerId { get; set; }
+    public Customer Customer { get; set; }
 }

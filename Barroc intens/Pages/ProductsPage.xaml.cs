@@ -13,16 +13,15 @@ using Microsoft.UI.Xaml.Input;
 using Microsoft.UI.Xaml.Media;
 using Microsoft.UI.Xaml.Navigation;
 
-namespace Barroc_intens.Pages
-{
-    public sealed partial class ProductsPage : Page
-    {
-        public ProductsPage()
-        {
-            this.InitializeComponent();
+namespace Barroc_intens.Pages;
 
-            using var conn = new AppDbContext();
-            ProductsListView.ItemsSource = conn.Products;
-        }
+public sealed partial class ProductsPage : Page
+{
+    public ProductsPage()
+    {
+        InitializeComponent();
+
+        using var conn = new AppDbContext();
+        ProductsListView.ItemsSource = conn.Products;
     }
 }
