@@ -59,6 +59,7 @@ namespace Barroc_intens
                     Id = 1,
                     Name = "Barroc Intens Italian Light",
                     ProductNumber = 23456701,
+                    UnitsInStock = 0,
                     LeaseCost = 499,
                     InstallCost = 289,
                     PricePerKilo = 0, // Niet van toepassing
