@@ -9,19 +9,6 @@
     mc:Ignorable="d"
     xmlns:localdata="using:Barroc_intens.Pages">
 
-    <!--<Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-
-        <StackPanel Grid.Row="0" VerticalAlignment="Center" Padding="5" Orientation="Horizontal">
-            <Button x:Name="ReturnButton" Click="ReturnButton_Click">Terug</Button>
-        </StackPanel>
-        <Frame x:Name="contentFrame" Grid.Row="1">
-        
-        </Frame>
-    </Grid>-->
     <Frame x:Name="contentFrame">
 
     </Frame>

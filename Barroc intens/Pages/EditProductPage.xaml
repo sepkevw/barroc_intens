@@ -107,7 +107,7 @@
             Width="45"    
             Margin="5,5,10,10">
                 <Button.Content>
-                    <SymbolIcon Symbol="Delete"/>
+                    <SymbolIcon Symbol="Cancel"/>
                 </Button.Content>
             </Button>
         </StackPanel>

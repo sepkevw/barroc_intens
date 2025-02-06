@@ -10,11 +10,12 @@ namespace Barroc_intens.Models
     {
         public int Id { get; set; }
         public int CustomerId { get; set; }
+        public Customer Customer { get; set; }
+
         public int AppointmentId { get; set; }
-        public string Notes { get; set; }
+        public Appointment Appointment { get; set; }
+
         public DateTime CreatedAt { get; set; }
 
-        public Customer Customer { get; set; }
-        public Appointment Appointment { get; set; }
     }
 }
