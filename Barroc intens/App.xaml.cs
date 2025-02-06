@@ -1,4 +1,5 @@
-﻿using Microsoft.UI.Xaml;
+﻿using Barroc_intens.Pages;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
 using Microsoft.UI.Xaml.Data;
@@ -26,10 +27,8 @@ namespace Barroc_intens
     /// </summary>
     public partial class App : Application
     {
-        /// <summary>
-        /// Initializes the singleton application object.  This is the first line of authored code
-        /// executed, and as such is the logical equivalent of main() or WinMain().
-        /// </summary>
+        public static Frame MainRootFrame { get; private set; }
+
         public App()
         {
             this.InitializeComponent();
@@ -41,10 +40,14 @@ namespace Barroc_intens
         /// <param name="args">Details about the launch request and process.</param>
         protected override void OnLaunched(Microsoft.UI.Xaml.LaunchActivatedEventArgs args)
         {
-            m_window = new MainWindow();
-            m_window.Activate();
-        }
+            var window = new MainWindow();
+            var rootFrame = new Frame();
 
-        private Window m_window;
+            window.Content = rootFrame;
+            MainRootFrame = rootFrame; // Store the root frame reference
+            rootFrame.Navigate(typeof(LoginPage));
+
+            window.Activate();
+        }
     }
 }

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Storage;
+using Barroc_intens.Models;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Controls.Primitives;
@@ -50,19 +52,51 @@ namespace Barroc_intens.Pages
 
 
             Frame.Navigate(typeof(SalesDashboardPage));
-            DisplayDialog("hoihoi", "Welcome");
+            //DisplayDialog("hoihoi", "Welcome");
         }
-        private async void DisplayDialog( string message, string title)
-        {
-            ContentDialog noWifiDialog = new ContentDialog()
-            {
-                XamlRoot = this.XamlRoot,
-                Title = title,
-                Content = message,
-                CloseButtonText = "Ok"
-            };
 
-            await noWifiDialog.ShowAsync();
+        //private async void DisplayDialog(string message, string title)
+        //{
+        //    ContentDialog noWifiDialog = new ContentDialog()
+        //    {
+        //        XamlRoot = this.XamlRoot,
+        //        Title = title,
+        //        Content = message,
+        //        CloseButtonText = "Ok"
+        //    };
+
+        //    await noWifiDialog.ShowAsync();
+        //}
+
+        private async void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            var conn = new AppDbContext();
+            var dbUser = conn.Users.FirstOrDefault(u => u.Username == UsernameInput.Text);
+
+
+            if (dbUser == null)
+            {
+                ErrorMessage.Text = "Password or Username is wrong.";
+            }
+            else
+            {
+                var verifyLogin = SecureHasher.Verify(PasswordInput.Password, dbUser.Password);
+                if (verifyLogin)
+                {
+                    dbUser.RememberToken = User.GenerateRememberToken();
+
+                    StorageFolder storageFolder = ApplicationData.Current.LocalFolder;
+                    StorageFile cookieFile = await storageFolder.CreateFileAsync(
+                        "remember_token.txt",
+                        CreationCollisionOption.ReplaceExisting);
+                    await FileIO.WriteTextAsync(cookieFile, dbUser.RememberToken);
+                    conn.SaveChanges();
+
+                    User.LoggedInUser = dbUser;
+
+                    Frame.Navigate(typeof(NavigationTabPage));
+                }
+            }
         }
     }
 }
