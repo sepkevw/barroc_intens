@@ -12,6 +12,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Barroc_intens.Models;
 
 namespace Barroc_intens.Pages
 {
@@ -22,14 +23,14 @@ namespace Barroc_intens.Pages
         {
             this.InitializeComponent();
         }
-        private void BackButton_Click(object sender, RoutedEventArgs e)
-        {
-            App.TryGoBack();
-        }
 
         private void LogoutButton_Click(object sender, RoutedEventArgs e)
         {
-            ParentFrame.Navigate(typeof(LoginPage));
+            if (App.MainRootFrame != null)
+            {
+                App.MainRootFrame.Navigate(typeof(LoginPage));
+                User.LoggedInUser = null;
+            }
         }
     }
 }
