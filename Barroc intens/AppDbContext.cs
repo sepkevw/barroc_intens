@@ -215,16 +215,28 @@ internal class AppDbContext : DbContext
         var users = new List<User>();
         var random = new Random();
 
-        for (var i = 1; i <= 30; i++)
+        var headRoles = new List<(int Id, string RoleName)>
+        {
+            (1, "Admin"),
+            (2, "CEO"),
+            (3, "HeadFinance"),
+            (5, "HeadSales"),
+            (7, "HeadInkoop"),
+            (10, "HeadMaintenance")
+        };
+
+        foreach (var (id, roleName) in headRoles)
+        {
             users.Add(new User
             {
-                Id = i,
-                Username = $"User{i}",
+                Id = users.Count + 1,
+                Username = roleName,
                 Password = SecureHasher.Hash("test"),
-                RoleId = random.Next(3, 13),
+                RoleId = id,
                 Created_at = DateTime.Now.AddDays(-random.Next(1, 1000)),
                 Role = null
             });
+        }
 
         modelBuilder.Entity<User>().HasData(users);
         modelBuilder.Entity<Category>().HasData(categories);
