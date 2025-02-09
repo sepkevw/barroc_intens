@@ -34,108 +34,24 @@
                        Padding="50, 0, 50, 10">
                 Binnekomende leveringen
             </TextBlock>
-            <ListView x:Name="dashboardListView" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" Margin="20, 10, 20, 20">
-                <!--<ListView.ItemTemplate>
-                    <DataTemplate x:DataType="localdata:User">
-                        <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                            <TextBlock Text="{x:Bind Username}"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListView.ItemTemplate>-->
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Elektrische pomp" />
-                        <!--product-->
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="14-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Rubber (10 mm) (100)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="16-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Ontkalker (50)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="19-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Slang (80)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="22-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 13.00 en 16.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Voeding (elektra) (5)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="24-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Waterfilter (2)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="27-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Reservoir sensor (5)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="29-11" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Druppelstop (10)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="02-12" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 14.00 en 17.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Elektrische pomp (3)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="05-12" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 10.00 en 13.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Tandwiel 110mm (40)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="08-12" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 09.00 en 12.00" />
-                    </StackPanel>
-                </ListViewItem>
-                <ListViewItem>
-                    <StackPanel Height="125" Background="DimGray" Margin="0, 0, 0, 20">
-                        <TextBlock Padding="5" Text="Zeef (25)" />
-                        <TextBlock Padding="5" Text="Leverings datum:" />
-                        <TextBlock Padding="5" Text="11-12" />
-                        <TextBlock Padding="5" Text="Verwachte bezorging tussen: 11.00 en 14.00" />
-                    </StackPanel>
-                </ListViewItem>
-            </ListView>
+        </StackPanel>
 
-            <TextBlock x:Name="dashboardGridViewTitle" Grid.Column="1" Grid.Row="0" Margin="70, 20, 0, 0" FontSize="20"
-                       Padding="50, 0, 50, 10">
-                Lage voorraad
+        <local:NavigationHeader x:Name="navigationHeader"/>
+
+        <ScrollViewer x:Name="AllStockStackPanel" 
+                    Grid.Column="0" 
+                    Grid.Row="1">
+
+            <StackPanel Orientation="Vertical">
+                
+            <TextBlock x:Name="DashboardListViewTitle"
+
+                       
+                       Margin="0, 20, 0, 0" 
+                       FontSize="20" 
+                       Padding="50, 0, 50, 10"
+                       Text="Alle Producten"
+                       HorizontalAlignment="Left">     
             </TextBlock>
             <GridView x:Name="dashboardGridView" Grid.Column="1" Grid.Row="1" Margin="0, 10, 0, 20"
                       HorizontalAlignment="Center">
